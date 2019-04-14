@@ -15,7 +15,8 @@
         </section>
 
         <section class="content">
-              <div class="box box-default">
+
+<div class="box box-default">
                 <div class="box-header with-border">
                   <h3 class="box-title">Search Invoice</h3>
 
@@ -67,7 +68,58 @@
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
+
+        	<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Search Invoice Result</h3>
             </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Partner Name</th>
+                  <th>Kontrak Layanan</th>
+                  <th>Invoice Number</th>
+                  <th>Status</th>
+                  <th>Contract Number</th>
+                  <th>Product Name</th>
+                  <th>Skema</th>
+                  <th>Contract Start</th>
+                  <th>Contract End</th>
+                  <th>Document Attachment</th>
+                  <th>Paid/Unpaid</th>
+                </tr>
+                </thead>
+                <tbody>
+             
+                <tr>
+                   <td>1</td>
+                  <td>Biznet</td>
+                  <td>KL-1</td>
+                  <td>Invoice-Number1</td>
+                  <td>Status1</td>
+                  <td>Contract-Number1</td>
+                  <td>Product-Name1</td>
+                  <td>Skema1</td>
+                  <td>ContractStart1</td>
+                  <td>ContractEnd1</td>
+                  <td>DocumentAttachment1</td>
+                  <td>PAID</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                
+
+
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+ </div>
               <!-- /.box -->
         </section>
     </div>
