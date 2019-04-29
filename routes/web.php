@@ -23,6 +23,15 @@ Route::get('/user-viewinvoice', function () {
     return view('user.viewinvoice');
 });
 
+Route::get('/user-searchresult', function () {
+    return view('user.searchresult');
+});
+
+
+Route::get('/delivery-homepage', function () {
+    return view('delivery.homepage');
+});
+
 //Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
