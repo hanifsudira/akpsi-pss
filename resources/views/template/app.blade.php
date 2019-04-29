@@ -39,10 +39,72 @@
 <body class="hold-transition skin-blue layout-top-nav">
     <div class="wrapper">
         <header class="main-header">
+            <nav class="navbarCust">
+                <div class="container">
+                    <div class="navbar-header">
+                    <img src="{{ ('/images/telkom.png') }}" class="navbar-img-brand" alt="User Image">
+                    </div>
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        {{-- <div class="navbar-main-cust">
+                        Partner Settlement System
+                        </div> --}}
+                        <div class="row">
+                            <div class="col-md-5">Partner Settlement System</div>
+                            <div class="col-md-5">
+                                    <div class="navbar-brand-title">
+                                            Partner Settlement System
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="/images/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <span class="hidden-xs">Hanif (Delivery)</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="user-header">
+                                        <img src="#" class="img-circle" alt="User Image">
+
+                                        <p>
+                                            Alexander Pierce - Web Developer
+                                            <small>Member since Nov. 2012</small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    <li class="user-body">
+                                        <div class="row">
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Followers</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Sales</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Friends</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <nav class="navbar navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a href="../../index2.html" class="navbar-brand">Partnert Settlement System</a>
+                        <a href="../../index2.html" class="navbar-brand">Partner Settlement System</a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
@@ -88,7 +150,7 @@
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         <!-- User Image -->
-                                                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                        <img src="/images/user2-160x160.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <!-- Message title and timestamp -->
                                                     <h4>
@@ -149,44 +211,6 @@
                                     </li>
                                     <li class="footer">
                                         <a href="#">View all tasks</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Alexander Pierce</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="user-header">
-                                        <img src="#" class="img-circle" alt="User Image">
-
-                                        <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
-                                        </p>
-                                    </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="row">
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Followers</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Sales</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Friends</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                        </div>
                                     </li>
                                 </ul>
                             </li>
