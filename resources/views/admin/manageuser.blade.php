@@ -11,14 +11,14 @@
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Admin</a></li>
-                <li class="active">Add User</li>
+                <li class="active">Manage User</li>
             </ol>
         </section>
 
         <section class="content">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add User</h3>
+                    <h3 class="box-title">Manage User</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">

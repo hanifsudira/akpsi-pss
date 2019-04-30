@@ -93,8 +93,20 @@ Route::get('/admin-user', function () {
     return view('admin.user');
 });
 
+Route::get('/admin-useredit', function () {
+    return view('admin.useredit');
+});
+
 Route::get('/admin-adduser', function () {
     return view('admin.adduser');
+});
+
+Route::get('/admin-manageuser', function () {
+    return view('admin.manageuser');
+});
+
+Route::get('/admin-datastaging', function () {
+    return view('admin.datastaging');
 });
 //Auth::routes();
 //
