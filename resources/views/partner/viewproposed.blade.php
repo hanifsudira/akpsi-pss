@@ -1,5 +1,5 @@
 @extends('template.app')
-@section('title', 'Delivery Proposed Invoice')
+@section('title', 'Partner Proposed Invoice')
 @section('content')
 
     <div class="container">
@@ -10,7 +10,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Partner</a></li>
                 <li class="active">View Proposed Invoice</li>
             </ol>
         </section>

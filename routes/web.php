@@ -47,6 +47,35 @@ Route::get('/delivery-proposedinvoice', function () {
 Route::get('/delivery-viewproposed', function () {
     return view('delivery.viewproposed');
 });
+
+Route::get('/delivery-reconciliation', function () {
+    return view('delivery.reconciliation');
+});
+
+Route::get('/partner-homepage', function () {
+    return view('partner.homepage');
+});
+
+Route::get('/partner-proposed', function () {
+    return view('partner.proposed');
+});
+
+Route::get('/partner-viewproposed', function () {
+    return view('partner.viewproposed');
+});
+
+Route::get('/partner-reconciliation', function () {
+    return view('partner.reconciliation');
+});
+
+
+Route::get('/settlement-homepage', function () {
+    return view('settlement.homepage');
+});
+
+Route::get('/settlement-proposed', function () {
+    return view('settlement.proposed');
+});
 //Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
