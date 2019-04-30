@@ -76,6 +76,26 @@ Route::get('/settlement-homepage', function () {
 Route::get('/settlement-proposed', function () {
     return view('settlement.proposed');
 });
+
+Route::get('/settlement-viewproposed', function () {
+    return view('settlement.viewproposed');
+});
+
+Route::get('/settlement-evaluation', function () {
+    return view('settlement.evaluation');
+});
+
+Route::get('/admin-homepage', function () {
+    return view('admin.homepage');
+});
+
+Route::get('/admin-user', function () {
+    return view('admin.user');
+});
+
+Route::get('/admin-adduser', function () {
+    return view('admin.adduser');
+});
 //Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
