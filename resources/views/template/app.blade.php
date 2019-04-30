@@ -55,12 +55,15 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown 
                                     <span class="caret"></span>
                                 </a>
+                                <ul><a href="#" class="dropdown-menu" data-toggle="menu">Dropdown 1
+                                </a></ul>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">Dropdown link</a></li>
-                                    <li><a href="#">Dropdown link</a></li>
-                                </ul>
+                                    <li><a href="#">Dropdown link 2</a></li>
+                                    <li><a href="#">Dropdown link 3</a></li>
+                                </ul> 
                             </li>
-
+                                
 
                         </ul>
                         <form class="navbar-form navbar-left" role="search">

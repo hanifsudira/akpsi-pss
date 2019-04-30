@@ -32,6 +32,21 @@ Route::get('/delivery-homepage', function () {
     return view('delivery.homepage');
 });
 
+Route::get('/delivery-billing', function () {
+    return view('delivery.billinggenerate');
+});
+
+Route::get('/delivery-viewbilling', function () {
+    return view('delivery.viewbilling');
+});
+
+Route::get('/delivery-proposedinvoice', function () {
+    return view('delivery.proposedinvoice');
+});
+
+Route::get('/delivery-viewproposed', function () {
+    return view('delivery.viewproposed');
+});
 //Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
