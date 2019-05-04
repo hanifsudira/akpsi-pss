@@ -11,7 +11,7 @@
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Admin</a></li>
-                <li class="active">Homepage</li>
+                <li class="active">User</li>
             </ol>
         </section>
 
