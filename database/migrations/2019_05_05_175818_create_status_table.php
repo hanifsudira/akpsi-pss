@@ -15,6 +15,11 @@ class CreateStatusTable extends Migration
     {
         Schema::create('status', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('remarks', 225);
+            $table->timestamp('status_date');
+            $table->string('status_track', 50);
+            $table->integer('id_bg_sum');
+            $table->integer('id_user');
             $table->timestamps();
         });
     }
