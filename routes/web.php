@@ -15,9 +15,12 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::post('/login', array('uses' => 'Controller@login'));
+
 Route::get('/user-homepage', function () {
     return view('user.homepage');
 });
+
 
 Route::get('/user-viewinvoice', function () {
     return view('user.viewinvoice');
