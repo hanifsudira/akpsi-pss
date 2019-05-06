@@ -1,24 +1,24 @@
 @extends('template.app')
-@section('title', 'User Homepage')
+@section('title', 'Delivery Homepage')
 @section('content')
+
     <div class="container">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <small>Result</small>
+                <small>Proposed Invoice</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">User</a></li>
-                <li class="active">Result</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li class="active">Proposed Invoice</li>
             </ol>
         </section>
 
         <section class="content">
-
-        <div class="box box-default">
+            <div class="box box-default">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Search Invoice</h3>
+                  <h3 class="box-title">Proposed Invoice</h3>
 
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -39,6 +39,16 @@
                         <input class="form-control" type="text">
                       </div>
                       <!-- /.form-group -->
+
+                      <div class="form-group">
+                        <label>Contract Date</label>
+                        <div class="input-group">
+                          <div class="input-group-addon">
+                            <i class="fa fa-clock-o"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right" id="contractdate">
+                        </div>
+                      </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
@@ -57,7 +67,10 @@
 
                       </div>
                       <!-- /.form-group -->
-
+                      <div class="form-group">
+                        <label>Kontrak Layanan</label>
+                        <input class="form-control" type="text">
+                      </div>
                     </div>
                     <!-- /.col -->
                   </div>
@@ -69,7 +82,7 @@
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
 
-        	<div class="box">
+            <div class="box">
             <div class="box-header">
               <h3 class="box-title">Search Invoice Result</h3>
             </div>
@@ -80,15 +93,16 @@
                 <tr>
                   <th>No</th>
                   <th>Partner Name</th>
-                  <th>Kontrak Layanan</th>
                   <th>Invoice Number</th>
                   <th>Status</th>
+                  <th>Kontrak Layanan</th>
                   <th>Contract Number</th>
                   <th>Product Name</th>
                   <th>Skema</th>
                   <th>Contract Start</th>
                   <th>Contract End</th>
                   <th>Document Attachment</th>
+                  <th>Action</th>
                   <th>Paid/Unpaid</th>
                 </tr>
                 </thead>
@@ -97,15 +111,16 @@
                 <tr>
                    <td>1</td>
                   <td>Biznet</td>
+                  <td href="">TC0172811</td>
+                  <td>Proposed Invoice by DA</td>
                   <td>KL-1</td>
-                  <td>Invoice-Number1</td>
-                  <td>Status1</td>
-                  <td>Contract-Number1</td>
-                  <td>Product-Name1</td>
+                  <td>TC1901-03001</td>
+                  <td>Internet Network</td>
                   <td>Skema1</td>
-                  <td>ContractStart1</td>
-                  <td>ContractEnd1</td>
+                  <td>16-01-2019</td>
+                  <td>20-01-2020</td>
                   <td>DocumentAttachment1</td>
+                  <td>Edit icon</td>
                   <td>PAID</td>
                 </tr>
                 </tbody>
@@ -120,7 +135,7 @@
           </div>
 
         </div>
-              <!-- /.box -->
-        </section>
+
+         </section>
     </div>
 @endsection
