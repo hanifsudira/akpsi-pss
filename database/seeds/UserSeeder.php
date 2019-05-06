@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class users extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,13 +12,12 @@ class users extends Seeder
      */
     public function run()
     {
-        
-         DB::table('users')->insert([
+        DB::table('users')->insert([
             'id_role' => '1',
             'name' => 'Afif',
 			'username' => '900231',
 			'password' => 'afif',
-		 	'last_login' => '1',
+		 	'last_login' => '2017-08-19 12:17:55',
 		 	'role' => 'delivery'
 		 ]); 
 
@@ -26,7 +26,7 @@ class users extends Seeder
             'name' => 'Ann',
 			'username' => '900232',
 			'password' => 'ann',
-		 	'last_login' => '1',
+		 	'last_login' => '2017-08-19 12:17:55',
 		 	'role' => 'partner'
 		 ]); 
 
@@ -35,7 +35,7 @@ class users extends Seeder
             'name' => 'Hilman',
 			'username' => '900233',
 			'password' => 'hilman',
-		 	'last_login' => '1',
+		 	'last_login' => '2017-08-19 12:17:55',
 		 	'role' => 'reviewer'
 		 ]); 
 
@@ -44,7 +44,7 @@ class users extends Seeder
             'name' => 'Hanif',
 			'username' => '900234',
 			'password' => 'hanif',
-		 	'last_login' => '1',
+		 	'last_login' => '2017-08-19 12:17:55',
 		 	'role' => 'evaluator'
 		 ]); 
 
@@ -53,9 +53,8 @@ class users extends Seeder
             'name' => 'Mulyani',
 			'username' => '900235',
 			'password' => 'mulyani',
-		 	'last_login' => '1',
+		 	'last_login' => '2017-08-19 12:17:55',
 		 	'role' => 'super admin'
 		 ]); 
-
     }
 }
