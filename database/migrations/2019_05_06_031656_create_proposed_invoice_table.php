@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDocumentTable extends Migration
+class CreateProposedInvoiceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateDocumentTable extends Migration
      */
     public function up()
     {
-        Schema::create('document', function (Blueprint $table) {
+        Schema::create('proposed_invoice', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('partner_name', 50);
-            $table->integer('upload_by');
-            $table->timestamp('upload_time');
-            $table->string('document_name', 255);
-            $table->binary('document_file');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +26,6 @@ class CreateDocumentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('document');
+        Schema::dropIfExists('proposed_invoice');
     }
 }
