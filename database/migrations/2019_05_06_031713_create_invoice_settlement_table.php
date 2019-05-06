@@ -15,6 +15,15 @@ class CreateInvoiceSettlementTable extends Migration
     {
         Schema::create('invoice_settlement', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('partner_name', 120);
+            $table->string('product', 255);
+            $table->decimal('unit_price');
+            $table->decimal('amount');
+            $table->decimal('tax_amount');
+            $table->decimal('total');
+            $table->date('bill_period');
+            $table->timestamp('generated_date');
+            $table->integer('id_bg_sum');
             $table->timestamps();
         });
     }

@@ -15,6 +15,12 @@ class CreateDisputeDocumentTable extends Migration
     {
         Schema::create('dispute_document', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamp('upload_time');
+            $table->string('document_name', 255);
+            $table->binary('document_file');
+            $table->integer('upload_by');
+            $table->integer('id_dispute');
+            $table->integer('id_bg_sum');
             $table->timestamps();
         });
     }

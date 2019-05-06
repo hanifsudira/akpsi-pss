@@ -15,6 +15,16 @@ class CreateProposedInvoiceTable extends Migration
     {
         Schema::create('proposed_invoice', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('partner_name', 120);
+            $table->string('product', 255);
+            $table->string('contract_number', 120);
+            $table->decimal('monthly_reccuring_charge');
+            $table->decimal('one_time_charge');
+            $table->decimal('usage_charge');
+            $table->decimal('penalty_charge');
+            $table->integer('id_bg_sum');
+            $table->integer('id_status');
+            $table->integer('id_doc');
             $table->timestamps();
         });
     }
