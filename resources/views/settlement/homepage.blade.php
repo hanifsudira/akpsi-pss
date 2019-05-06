@@ -1,5 +1,5 @@
 @extends('template.app')
-@section('title', 'Delivery Homepage')
+@section('title', 'Settlement Homepage')
 @section('content')
 
     <div class="container">
@@ -10,13 +10,13 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Settlement</a></li>
                 <li class="active">Activities</li>
             </ol>
         </section>
 
         <section class="content">
-           <div class="box">
+            <div class="box">
             <div class="box-header">
               <h3 class="box-title">Activities</h3>
             </div>
@@ -53,7 +53,6 @@
             </div>
             <!-- /.box-body -->
           </div>
-
 
         </section>
     </div>
