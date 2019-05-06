@@ -30,7 +30,6 @@ Route::get('/user-searchresult', function () {
     return view('user.searchresult');
 });
 
-
 Route::get('/delivery-homepage', function () {
     return view('delivery.homepage');
 });

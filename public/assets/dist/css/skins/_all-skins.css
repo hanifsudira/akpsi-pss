@@ -3,8 +3,13 @@
  * ----------
  */
 .skin-blue .main-header .navbar {
-  background-color: #3c8dbc;
+  background-image: linear-gradient(to right, #000000, #420f1d, #820327, #c20023, #ff0000);;
 }
+
+.skin-blue .main-header .navbarCust {
+  background-color:#820327;
+}
+
 .skin-blue .main-header .navbar .nav > li > a {
   color: #ffffff;
 }

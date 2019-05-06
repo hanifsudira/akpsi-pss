@@ -200,6 +200,21 @@ a:focus {
   min-height: 50px;
   border-radius: 0;
 }
+.main-header .navbarCust {
+  -webkit-transition: margin-left 0.3s ease-in-out;
+  -o-transition: margin-left 0.3s ease-in-out;
+  transition: margin-left 0.3s ease-in-out;
+  margin-bottom: 0;
+  margin-left: 230px;
+  border: none;
+  min-height: 50px;
+  border-radius: 0;
+}
+.main-header .navbar-img-brand{
+  height: 55px; 
+  border:0;
+  padding: 5px 5px
+}
 .layout-top-nav .main-header .navbar {
   margin-left: 0;
 }
@@ -304,6 +319,9 @@ a:focus {
 .main-header .navbar-brand {
   color: #fff;
 }
+.main-header .navbar-brand-title {
+  color: #fffD;
+}
 .content-header {
   position: relative;
   padding: 15px 15px 0 15px;
@@ -382,7 +400,8 @@ a:focus {
     position: relative;
   }
   .main-header .logo,
-  .main-header .navbar {
+  .main-header .navbar,
+  .main-header .navbarCust {
     width: 100%;
     float: none;
   }
@@ -2250,7 +2269,7 @@ a:focus {
   background-color: #008d4c;
 }
 .btn-info {
-  background-color: #00c0ef;
+  background-color: #ef0000;
   border-color: #00acd6;
 }
 .btn-info:hover,
