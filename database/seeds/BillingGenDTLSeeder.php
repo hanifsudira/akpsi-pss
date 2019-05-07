@@ -12,7 +12,7 @@ class BillingGenDTLSeeder extends Seeder
     public function run()
     {
         DB::table('billing_generate_dtl')->insert([
-            'id_bg_dtl' => '1',
+            'id_bg_dtl' => '5',
 			'customer_ref' => '21',
 			'kl_start_date' => '2018-02-21 00:00:00',
 		 	'kl_end_date' => '2020-02-21 00:00:00',
@@ -29,7 +29,7 @@ class BillingGenDTLSeeder extends Seeder
 
 
 		 DB::table('billing_generate_dtl')->insert([
-            'id_bg_dtl' => '2',
+            'id_bg_dtl' => '9',
 			'customer_ref' => '5',
 			'kl_start_date' => '2017-04-17 00:00:00',
 		 	'kl_end_date' => '2019-04-17 00:00:00',
@@ -45,7 +45,7 @@ class BillingGenDTLSeeder extends Seeder
 		 ]); 
 
 		 DB::table('billing_generate_dtl')->insert([
-            'id_bg_dtl' => '3',
+            'id_bg_dtl' => '10',
 			'customer_ref' => '8',
 			'kl_start_date' => '2018-02-21 00:00:00',
 		 	'kl_end_date' => '2021-02-21 00:00:00',
