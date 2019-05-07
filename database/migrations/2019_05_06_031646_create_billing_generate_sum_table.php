@@ -27,7 +27,6 @@ class CreateBillingGenerateSumTable extends Migration
             $table->decimal('total_charge');
             $table->date('bill_period');
             $table->string('partner_name', 120);
-            $table->timestamps();
         });
     }
 
