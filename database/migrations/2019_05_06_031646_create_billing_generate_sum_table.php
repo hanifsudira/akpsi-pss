@@ -14,7 +14,7 @@ class CreateBillingGenerateSumTable extends Migration
     public function up()
     {
         Schema::create('billing_generate_sum', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_bg_sum');
             $table->integer('id_user');
             $table->integer('customer_ref');
             $table->timestamp('kl_start_date');
