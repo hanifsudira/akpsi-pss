@@ -11,11 +11,20 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+
+Route::get('/', function () {
+    return redirect('login');
 });
 
-Route::post('/login', array('uses' => 'Controller@login'));
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/login', function () {
+//    return view('login');
+//});
+
+#Route::post('/login', array('uses' => 'Controller@login'));
 
 Route::get('/user-homepage', function () {
     return view('user.homepage');
@@ -110,6 +119,31 @@ Route::get('/admin-manageuser', function () {
 Route::get('/admin-datastaging', function () {
     return view('admin.datastaging');
 });
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+    Route::get('homepage', [
+        'as'    => 'admin.homepage',
+        'uses'  => 'AdminController@homepage'
+    ]);
+
+    Route::get('getuser', [
+        'as'    => 'admin.getuser',
+        'uses'  => 'AdminController@getUser'
+    ]);
+
+    Route::get('datastaging', [
+        'as'    => 'admin.datastaging',
+        'uses'  => 'AdminController@datastaging'
+    ]);
+
+    Route::get('kelolauser', [
+        'as'    => 'admin.kelolauser',
+        'uses'  => 'AdminController@kelolauser'
+    ]);
+
+    Route::get('kelolajenis', [
+        'as'    => 'admin.kelolajenis',
+        'uses'  => 'AdminController@kelolajenis'
+    ]);
+});

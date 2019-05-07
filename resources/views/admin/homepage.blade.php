@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="container">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
                 <small>Search User</small>
@@ -16,89 +15,52 @@
         </section>
 
         <section class="content">
-
             <div class="box box-default">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Search User</h3>
-
-                  <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-                  </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>User name</label>
-                        <input class="form-control" type="text">
-                      </div>
-                      <!-- /.form-group -->
-                      <div class="form-group">
-                        <label>User ID</label>
-                        <input class="form-control" type="text">
-                      </div>
-                      <!-- /.form-group -->
-
-                    
+                    <h3 class="box-title">Search User</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Division</label>
-                        <select class="form-control select2" style="width: 100%;">
-                          <option selected="selected">Information Technology (IT)</option>
-                          <option>dummy 2</option>
-                          <option>dummy 3</option>
-                        </select>
-
-                      </div>
-                      <!-- /.form-group -->
-                      
+                    <div class="box-body">
+                        <table id="datatable" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>NAMA</th>
+                                <th>EMAIL</th>
+                                <th>USERNAME</th>
+                                <th>ROLE</th>
+                                <th>STATUS</th>
+                                <th>CREATED AT</th>
+                                <th>UPDATED AT</th>
+                                <th>ACTION</th>
+                            </tr>
+                            </thead>
+                        </table>
                     </div>
-                    <!-- /.col -->
-                  </div>
-                  <!-- /.row -->
                 </div>
-                <!-- /.box-body -->
-
-
-
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-
-
-
-                 <div class="box">
-            
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>No</th>
-                  <th>User Name</th>
-                  <th>User ID</th>
-                  <th>User Role</th>
-                  <th>Division</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-             
-                
-                </tbody>
-                <tfoot>
-                
-
-
-                </tfoot>
-              </table>
             </div>
-            <!-- /.box-body -->
-          </div>
         </section>
     </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route('admin.getuser') }}',
+                columns: [
+                    { data: 'name',name: 'name'},
+                    { data: 'email',name: 'email'},
+                    { data: 'username',name: 'username'},
+                    { data: 'role',name: 'role'},
+                    { data: 'status',name: 'status'},
+                    { data: 'created_at',name: 'created_at'},
+                    { data: 'updated_at',name: 'updated_at'},
+                    { data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            });
+        });
+    </script>
 @endsection
