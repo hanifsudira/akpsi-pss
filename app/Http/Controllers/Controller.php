@@ -11,10 +11,4 @@ use Illuminate\Support\Facades\DB;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public function login(){
-    	$users = DB::table('users')->select('username', 'password')->get();
-
-    	echo $users;
-    }
 }

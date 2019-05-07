@@ -16,8 +16,8 @@ class CreateBillingGenerateDtlTable extends Migration
         Schema::create('billing_generate_dtl', function (Blueprint $table) {
             $table->bigIncrements('id_bg_dtl');
             $table->integer('customer_ref');
-            $table->timestamp('kl_start_date');
-            $table->timestamp('kl_end_date');
+            $table->dateTime('kl_start_date');
+            $table->dateTime('kl_end_date');
             $table->string('product', 225);
             $table->integer('monthly_reccuring_charge');
             $table->integer('usage_charge');
