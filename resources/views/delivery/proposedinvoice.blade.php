@@ -1,5 +1,23 @@
 @extends('template.app')
 @section('title', 'Delivery Homepage')
+@section('css')
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/bower_components/Ionicons/css/ionicons.min.css') }}">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css') }}">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/plugins/iCheck/all.css') }}">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="{{ URL::asset('assets/plugins/timepicker/bootstrap-timepicker.min.css') }}">
+@endsection
 @section('content')
 
     <div class="container">
@@ -138,4 +156,31 @@
 
          </section>
     </div>
+@endsection
+@section('js')
+<script src="{{ URL::asset('assets/plugins/input-mask/jquery.inputmask.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/moment/min/moment.min.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/iCheck/icheck.min.js') }}"></script>
+<script>
+ $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Date picker
+    $('#contractdate').datepicker({
+      autoclose: true
+    })
+
+    
+
+//     $('#selectDate').datepicker()
+// .on('changeDate', function(ev){                 
+//     $('#selectDate').datepicker('hide');
+// });
+  })
+</script>
 @endsection

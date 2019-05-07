@@ -210,13 +210,13 @@
 <script src="{{ URL::asset('assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
 <script src="{{ URL::asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <script src="{{ URL::asset('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ URL::asset('assets/dist/js/demo.js') }}"></script>
+{{-- <script src="{{ URL::asset('assets/dist/js/demo.js') }}"></script> --}}
 <script src="{{ URL::asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ URL::asset('assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
-<script src="{{ URL::asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ URL::asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/datatables.net/js/jquery.dataTables.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.js') }}"></script>
 <script src="{{ URL::asset('assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 @yield('js')
 </html>
