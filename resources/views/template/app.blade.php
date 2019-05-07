@@ -42,21 +42,11 @@
             <nav class="navbarCust">
                 <div class="container">
                     <div class="navbar-header">
-                    <img src="{{ ('/images/telkom.png') }}" class="navbar-img-brand" alt="User Image">
+                        <img src="{{ ('/images/telkom.png') }}" class="navbar-img-brand" alt="User Image">
                     </div>
-                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-                        {{-- <div class="navbar-main-cust">
-                        Partner Settlement System
-                        </div> --}}
-                        <div class="row">
-                            <div class="col-md-5">Partner Settlement System</div>
-                            <div class="col-md-5">
-                                    <div class="navbar-brand-title">
-                                            Partner Settlement System
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{-- <div class="collapse navbar-collapse pull-left" id="navbar-collapse"> --}}
+                           
+                    {{-- </div> --}}
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <li class="dropdown user user-menu">
@@ -99,6 +89,11 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="row text-center">
+                      <div class="titleCust">
+                         Partner <span class="title2"> Settlement System</span>
+                      </div>
+                    </div>
                 </div>
             </nav>
             <nav class="navbar navbar-static-top">
@@ -109,31 +104,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                     </div>
-                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">Link</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown 
-                                    <span class="caret"></span>
-                                </a>
-                                <ul><a href="#" class="dropdown-menu" data-toggle="menu">Dropdown 1
-                                </a></ul>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Dropdown link</a></li>
-                                    <li><a href="#">Dropdown link 2</a></li>
-                                    <li><a href="#">Dropdown link 3</a></li>
-                                </ul> 
-                            </li>
-                                
-
-                        </ul>
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
-                            </div>
-                        </form>
-                    </div>
+                    
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
@@ -243,6 +214,9 @@
 <script src="{{ URL::asset('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ URL::asset('assets/plugins/select2/select2.full.min.js') }}"></script>
 <script src="{{ URL::asset('assets/dist/js/demo.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ URL::asset('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
 @yield('js')
 </html>
 </html>
