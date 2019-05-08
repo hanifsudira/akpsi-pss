@@ -54,6 +54,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="divisi" class="col-md-4 col-form-label text-md-right">{{ __('Divisi') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="divisi" type="text" class="form-control{{ $errors->has('divisi') ? ' is-invalid' : '' }}" name="divisi" value="{{ old('divisi') }}" required>
+
+                                @if ($errors->has('divisi'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('divisi') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
                             <div class="col-md-6">
                                 <select id="role" name="role" class="form-control">
