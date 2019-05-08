@@ -1,10 +1,9 @@
 @extends('template.app')
 @section('title', 'Delivery Proposed Invoice')
 @section('css')
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{{-- <link rel="stylesheet" href="bootstrap.min.css" /> --}}
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style type="text/css">
     body {
         color: #404E67;
@@ -104,6 +103,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Invoice TC0172811 KL-1</h3>
                 </div>
+                
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -114,7 +114,7 @@
                             
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Partner Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="BIZNET" disabled="">
+                                <input type="email" class="form-control" name= "partner_name" id="partner_name" placeholder="BIZNET" disabled="">
                             </div><div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Proposed Invoice by DA" disabled="" >
@@ -128,10 +128,7 @@
                                 <label for="exampleInputEmail1">MRC Amount</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="300,000" disabled="">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Termin Amount</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="500,000" disabled="">
-                            </div>
+                          
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Total Amount</label>
@@ -139,23 +136,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Termin Sequence</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
+                                <label for="exampleInputEmail1">Line Item ID</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="BIZNET" disabled="">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Maximum Usage</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Original Usage</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Actual Usage</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
+                                <label for="exampleInputEmail1">Product Name</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Proposed Invoice by DA" disabled="">
                             </div>
                             
                             <div class="form-group">
@@ -164,21 +150,14 @@
                             </div>
 
 
-                            
-                           <button type="submit" class="btn btn-primary">SUBMIT</button>
+                        
+                            <div class="form-group">
+                                    <button class="btn btn-success upload-image" type="submit">SUBMIT</button>
+                            </div>                              
+                            {{-- <button type="submit" class="btn btn-primary">SUBMIT</button> --}}
                             <button type="submit" class="btn btn-primary">CANCEL</button>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Line Item ID</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="BIZNET" disabled="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Product Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Fiber Optic" disabled="" >
-                            </div>
-
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kontrak Layanan</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="KL-1" disabled="">
@@ -186,44 +165,31 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">NRC Penalty</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="TC1901-03001" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Fiber Optic" disabled="" >
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">MRC Penalty</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="16-01-2019" disabled="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Termin Penalty</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="20-01-2020" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="KL-1" disabled="">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">DP Penalty</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="20-12-2022" disabled="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Retensi Penalty</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="TC1901-03001" disabled="">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Volume</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" >
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="16-01-2019" disabled="">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Buffer</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="20-01-2020" disabled="">
                             </div>
 
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Usage Penalty</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1">
-                            </div>
-
+                            <form action="{{ route('uploadFile') }}" enctype="multipart/form-data" method="POST"> 
+                               
                             <div class="form-group">
                                     <div class="table-wrapper">
                                             <div class="table-title">
@@ -231,106 +197,318 @@
                                                     <div class="col-sm-8"><b>Document Attachment</b></div>
                                                 </div>
                                             </div>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Upload By</th>
-                                                        <th>Upload Time</th>
-                                                        <th>Type Document</th>
-                                                        <th>Document Name</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Delivery</td>
-                                                        <td>26-03-2019</td>
-                                                        <td>PDF</td>
-                                                        <td>(171) 555-2222</td>
-                                                        <td>
-                                                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                                        </td>
-                                                    </tr>    
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                            
+                                            <form method="post" id="user_form">
+                                                    <div class="table-responsive">
+                                                     <table class="table table-striped table-bordered" id="user_data">
+                                                      <tr>
+                                                       <th>Upload By</th>
+                                                       <th>Upload Time</th>
+                                                       <th>Type Document</th>
+                                                       <th>Document Name</th>
+                                                       {{-- <th>Details</th> --}}
+                                                       <th>Remove</th>
+                                                      </tr>
+                                                     </table>
+                                                    </div>
+
+                                                   </form>
+                                                
+                                                   <br />
+                                                  </div>
+                                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <div id="user_dialog" title="Add Data">
+                                                
+                                                   <div class="form-group">
+                                                    <label>Upload By</label>
+                                                    <input type="text" name="upload_by"  placeholder={{ Auth::user()->username }} id="upload_by" class="form-control" />
+                                                    <span id="error_first_name" class="text-danger"></span>
+                                                   </div>
+                                                   <div class="form-group">
+                                                    <label>Upload Time</label>
+                                                    <input type="text" name="upload_time" id="upload_time" class="form-control" />
+                                                    <span id="error_last_name" class="text-danger"></span>
+                                                   </div>
+                                                   <div class="form-group">
+                                                        <label>Type Document</label>
+                                                        <input type="text" name="type_document" id="type_document" class="form-control" />
+                                                        <span id="error_last_name" class="text-danger"></span>
+                                                    </div>
+                                                   
+                                                    <div class="form-group">
+                                                            <label>Document Name</label>
+                                                            <input type="file" name="document_name" id="document_name" class="form-control" />
+                                                            <span id="error_last_name" class="text-danger"></span>
+                                                    </div>
+                                              </form>
+                                                   <div class="form-group" align="center">
+                                                    <input type="hidden" name="row_id" id="hidden_row_id" />
+                                                    <button type="button" name="save" id="save" class="btn btn-info">Save</button>
+                                                   </div>
+                                                  </div>
+                                                  <div id="action_alert" title="Action">
+                                                
+                                                  </div>
+                                                  <div align="right" style="margin-bottom:5px;">
+                                                        <button type="button" name="add" id="add" class="btn btn-success btn-xs">ADD MORE DOCUMENT</button>
+                                                </div>
+                                                <div class="form-group">
+                                                        <button class="btn btn-success upload-image" type="submit">Kirim</button>
+                                                </div>
                             </div>
-                            <div class="form-group">
-                                 <div class="col-sm-4">
-                                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                                    </div>
-                                {{-- <div class="box-footer">
-                                    <button type="submit" class="btn btn-info pull-right">ADD MORE DOCUMENT</button>
-                                </div> --}}
-                            </div>
+                          
+                        </form>
                         </div>
+                 
                     </div>
                 </div>
+            
             </div>
         </section>
     </div>
 @endsection
 @section('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-	var actions = $("table td:last-child").html();
-	// Append table with add row form on add new button click
-    $(".add-new").click(function(){
-		$(this).attr("disabled", "disabled");
-		var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' +
-            '<td><input type="text" class="form-control" name="No" id="No"></td>' +
-            '<td><input type="text" class="form-control" name="Upload By" id="Upload By"></td>' +
-            '<td><input type="text" class="form-control" name="Upload Time" id="Upload Time"></td>' +
-            '<td><input type="text" class="form-control" name="Type Document" id="Type Document"></td>' +
-            '<td><input type="text" class="form-control" name="Document Name" id="Document Name"></td>' +
-			'<td>' + actions + '</td>' +
-        '</tr>';
-    	$("table").append(row);		
-		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-        $('[data-toggle="tooltip"]').tooltip();
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+  <script>
+
+    $("body").on("click",".upload-image",function(e){
+      $(this).parents("form").ajaxForm(options);
     });
-	// Add row on add button click
-	$(document).on("click", ".add", function(){
-		var empty = false;
-		var input = $(this).parents("tr").find('input[type="text"]');
-        input.each(function(){
-			if(!$(this).val()){
-				$(this).addClass("error");
-				empty = true;
-			} else{
-                $(this).removeClass("error");
-            }
-		});
-		$(this).parents("tr").find(".error").first().focus();
-		if(!empty){
-			input.each(function(){
-				$(this).parent("td").html($(this).val());
-			});			
-			$(this).parents("tr").find(".add, .edit").toggle();
-			$(".add-new").removeAttr("disabled");
-		}		
-    });
-	// Edit row on edit button click
-	$(document).on("click", ".edit", function(){		
-        $(this).parents("tr").find("td:not(:last-child)").each(function(){
-			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-		});		
-		$(this).parents("tr").find(".add, .edit").toggle();
-		$(".add-new").attr("disabled", "disabled");
-    });
-	// Delete row on delete button click
-	$(document).on("click", ".delete", function(){
-        $(this).parents("tr").remove();
-		$(".add-new").removeAttr("disabled");
-    });
+  
+  
+    var options = { 
+      complete: function(response) 
+      {
+          if($.isEmptyObject(response.responseJSON.error)){
+            //   var sel = $("input[name='hidden_upload_by']").attr('value');
+            $("input[name='hidden_upload_by']").attr('value');
+            $("input[name='hidden_upload_time']").attr('value');
+            $("input[name='hidden_type_document']").attr('value');
+            //   $("input[name='hidden_upload_by']").val('');
+            //   $("input[name='hidden_upload_time']").val('');
+            //   $("input[name='hidden_type_document']").val('');
+            //   alert(sel)
+              alert('Image Upload Successfully.');
+          }else{
+              printErrorMsg(response.responseJSON.error);
+          }
+      }
+    };
+  
+  
+    function printErrorMsg (msg) {
+      $(".print-error-msg").find("ul").html('');
+      $(".print-error-msg").css('display','block');
+      $.each( msg, function( key, value ) {
+          $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+      });
+    }
+  </script>
+<script>  
+        
+        $(document).ready(function(){
+       
+
 });
-</script>
+        var d = new Date();
+
+        var month = d.getMonth()+1;
+        var day = d.getDate();
+
+        var output = ((''+day).length<2 ? '0' : '') + day + '-' + ((''+month).length<2 ? '0' : '') + month  + '-' +  d.getFullYear() ;
+         var count = 0;
+        
+         $('#user_dialog').dialog({
+          autoOpen:false,
+          width:400
+         });
+        
+         $('#add').click(function(){
+          $('#user_dialog').dialog('option', 'title', 'Add Data');
+          $('#upload_by').val('').attr("disabled",'disabled').attr("placeholder",'{{ Auth::user()->username }}');;
+          $('#upload_time').val('').attr("disabled",'disabled').attr("placeholder",output);
+          $('#type_document').val('');
+          $('#document_name').val('');
+          $('#error_upload_by').text('');
+          $('#error_upload_time').text('');
+          $('#error_type_document').text('');
+          $('#error_document_name').text('');
+          $('#upload_by').css('border-color', '');
+          $('#upload_time').css('border-color', '');
+          $('#type_document').css('border-color', '');
+          $('#document_name').css('border-color', '');
+          $('#save').text('Save');
+          $('#user_dialog').dialog('open');
+         });
+        
+         $('#save').click(function(){
+          var error_upload_by = '';
+          var error_upload_time = '';
+          var error_type_document = '';
+          var error_document_name = '';
+          var upload_by = '';
+          var upload_time = '';
+          var type_document = '';
+          var document_name = '';
+          var output = ((''+day).length<2 ? '0' : '') + day + '-' + ((''+month).length<2 ? '0' : '') + month  + '-' +  d.getFullYear() ;
+
+          if($('#upload_by').attr("placeholder") == '')
+          {
+           error_upload_by = 'Upload By is required';
+           $('#error_upload_by').text(error_upload_by);
+           $('#upload_by').css('border-color', '#cc0000');
+           upload_by = '';
+          }
+          else
+          {
+           error_upload_by = '';
+           $('#error_upload_by').text(error_upload_by);
+           $('#upload_by').css('border-color', '');
+           upload_by = '{{ Auth::user()->username }}'
+          }
+          
+          if($('#upload_time').attr("placeholder") == '')
+          {
+           error_upload_time = 'Upload Time is required';
+           $('#error_upload_time').text(error_upload_time);
+           $('#upload_time').css('border-color', '#cc0000');
+           upload_time = '';
+          }
+          else
+          {
+           error_upload_time = '';
+           $('#error_upload_time').text(error_upload_time);
+           $('#upload_time').css('border-color', '');
+           upload_time = output;
+           //$('#upload_time').val();
+          }
+        // upload_time = output;
+          if($('#type_document').val() == '')
+          {
+           error_type_document = 'Type Document is required';
+           $('#error_type_document').text(error_type_document);
+           $('#type_document').css('border-color', '#cc0000');
+           type_document = '';
+          }
+          else
+          {
+           error_type_document = '';
+           $('#error_type_document').text(error_type_document);
+           $('#type_document').css('border-color', '');
+           type_document = $('#type_document').val();
+          }
+          if($('#document_name').val() == '')
+          {
+           error_document_name = 'Document name is required';
+           $('#error_document_name').text(error_document_name);
+           $('#document_name').css('border-color', '#cc0000');
+           document_name = '';
+          }
+          else
+          {
+           error_document_name = '';
+           $('#error_document_name').text(error_document_name);
+           $('#type_document_name').css('border-color', '');
+           document_name = $('#document_name').val();
+          }
+          if(error_upload_by != '' || error_upload_time != ''|| error_type_document != ''|| error_document_name != '')
+          {
+           return false;
+          }
+          else
+          {
+           if($('#save').text() == 'Save')
+           {
+            // alert(user);
+            count = count + 1;
+            output = '<tr id="row_'+count+'">';
+            output += '<td>'+upload_by+' <input type="hidden" name="hidden_upload_by" id="upload_by'+count+'" class="first_name" value="'+upload_by+'" /></td>';
+            output += '<td>'+upload_time+' <input type="hidden" name="hidden_upload_time" id="upload_time'+count+'" value="'+upload_time+'" /></td>';
+            output += '<td>'+type_document+' <input type="hidden" name="hidden_type_document" id="type_document'+count+'" value="'+type_document+'" /></td>';
+            output += '<td>'+document_name+' <input type="hidden" name="hidden_document_name" id="document_name'+count+'" value="'+document_name+'" /></td>';
+            // output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+count+'">View</button></td>';
+            output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+count+'">Remove</button></td>';
+            output += '</tr>';
+            $('#user_data').append(output);
+           }
+           else
+           {
+            var row_id = $('#hidden_row_id').val();
+            output = '<td>'+upload_by+' <input type="hidden" name="hidden_upload_by" id="upload_by'+row_id+'" class="upload_by" value="'+upload_by+'" /></td>';
+            output += '<td>'+upload_time+' <input type="hidden" name="hidden_upload_time" id="upload_time'+row_id+'" value="'+upload_time+'" /></td>';
+            output += '<td>'+type_document+' <input type="hidden" name="hidden_type_document" id="type_document'+row_id+'" value="'+type_document+'" /></td>';
+            output += '<td>'+document_name+' <input type="hidden" name="hidden_document_name" id="document_name'+row_id+'" value="'+document_name+'" /></td>';
+            // output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+row_id+'">View</button></td>';
+            output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+row_id+'">Remove</button></td>';
+            $('#row_'+row_id+'').html(output);
+           }
+        
+           $('#user_dialog').dialog('close');
+          }
+         });
+        
+        //  $(document).on('click', '.view_details', function(){
+        //   var row_id = $(this).attr("id");
+        //   var upload_by = $('#upload_by'+row_id+'').val();
+        //   var upload_time = $('#upload_time'+row_id+'').val();
+        //   var type_document = $('#type_document'+row_id+'').val();
+        //   var document_name = $('#document_name'+row_id+'').val();
+        //   $('#upload_by').val(upload_by);
+        //   $('#upload_time').val(upload_time);
+        //   $('#type_document').val(type_document);
+        //   $('#document_name').val(document_name);
+        //   $('#save').text('Edit');
+        //   $('#hidden_row_id').val(row_id);
+        //   $('#user_dialog').dialog('option', 'title', 'Edit Data');
+        //   $('#user_dialog').dialog('open');
+        //  });
+        
+         $(document).on('click', '.remove_details', function(){
+          var row_id = $(this).attr("id");
+          if(confirm("Are you sure you want to remove this row data?"))
+          {
+           $('#row_'+row_id+'').remove();
+          }
+          else
+          {
+           return false;
+          }
+         });
+        
+         $('#action_alert').dialog({
+          autoOpen:false
+         });
+        
+         $('#user_form').on('submit', function(event){
+          event.preventDefault();
+          var count_data = 0;
+          $('.first_name').each(function(){
+           count_data = count_data + 1;
+          });
+          if(count_data > 0)
+          {
+           var form_data = $(this).serialize();
+           $.ajax({
+            url:"insert.php",
+            method:"POST",
+            data:form_data,
+            success:function(data)
+            {
+             $('#user_data').find("tr:gt(0)").remove();
+             $('#action_alert').html('<p>Data Inserted Successfully</p>');
+             $('#action_alert').dialog('open');
+            }
+           })
+          }
+          else
+          {
+           $('#action_alert').html('<p>Please Add atleast one data</p>');
+           $('#action_alert').dialog('open');
+          }
+         });
+         
+      
+        </script>
 @endsection
