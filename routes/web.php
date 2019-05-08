@@ -19,6 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/delivery-viewproposed', 'DeliverController@uploadFile');
+Route::post('/delivery-viewproposed', 'DeliveryController@StoreUploadFile');
 
 //Route::get('/login', function () {
 //    return view('login');
