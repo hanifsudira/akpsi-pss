@@ -26,100 +26,98 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 #Route::post('/login', array('uses' => 'Controller@login'));
 
-Route::get('/user-homepage', function () {
-    return view('user.homepage');
+Route::group(['prefix' => 'user'], function () {
+    Route::get('homepage', [
+        'as'    => 'user.homepage',
+        'uses'  => 'UserController@homepage'
+    ]);
+
+    Route::get('viewinvoice', [
+        'as'    => 'user.viewinvoice',
+        'uses'  => 'UserController@viewinvoice'
+    ]);
+
+    Route::get('searchresult', [
+        'as'    => 'user.searchresult',
+        'uses'  => 'UserController@searchresult'
+    ]);
 });
 
+Route::group(['prefix' => 'delivery'], function () {
+    Route::get('homepage', [
+        'as'    => 'delivery.homepage',
+        'uses'  => 'DeliveryController@homepage'
+    ]);
 
-Route::get('/user-viewinvoice', function () {
-    return view('user.viewinvoice');
+    Route::get('homepage', [
+        'as'    => 'delivery.billinggenerate',
+        'uses'  => 'DeliveryController@billinggenerate'
+    ]);
+
+    Route::get('viewbilling', [
+        'as'    => 'delivery.viewbilling',
+        'uses'  => 'DeliveryController@viewbilling'
+    ]);
+
+    Route::get('proposedinvoice', [
+        'as'    => 'delivery.proposedinvoice',
+        'uses'  => 'DeliveryController@proposedinvoice'
+    ]);
+
+    Route::get('viewproposed', [
+        'as'    => 'delivery.viewproposed',
+        'uses'  => 'DeliveryController@viewproposed'
+    ]);
+
+    Route::get('reconciliation', [
+        'as'    => 'delivery.reconciliation',
+        'uses'  => 'DeliveryController@reconciliation'
+    ]);
 });
 
-Route::get('/user-searchresult', function () {
-    return view('user.searchresult');
+Route::group(['prefix' => 'partner'], function () {
+    Route::get('homepage', [
+        'as'    => 'partner.homepage',
+        'uses'  => 'PartnerController@homepage'
+    ]);
+
+    Route::get('proposed', [
+        'as'    => 'partner.proposed',
+        'uses'  => 'PartnerController@proposed'
+    ]);
+
+    Route::get('viewproposed', [
+        'as'    => 'partner.viewproposed',
+        'uses'  => 'PartnerController@viewproposed'
+    ]);
+
+    Route::get('reconciliation', [
+        'as'    => 'partner.reconciliation',
+        'uses'  => 'PartnerController@reconciliation'
+    ]);
 });
 
-Route::get('/delivery-homepage', function () {
-    return view('delivery.homepage');
+Route::group(['prefix' => 'settlement'], function () {
+    Route::get('homepage', [
+        'as'    => 'settlement.homepage',
+        'uses'  => 'SettlementController@homepage'
+    ]);
+
+    Route::get('proposed', [
+        'as'    => 'settlement.proposed',
+        'uses'  => 'SettlementController@proposed'
+    ]);
+
+    Route::get('viewproposed', [
+        'as'    => 'settlement.viewproposed',
+        'uses'  => 'SettlementController@viewproposed'
+    ]);
+
+    Route::get('evaluation', [
+        'as'    => 'settlement.evaluation',
+        'uses'  => 'SettlementController@evaluation'
+    ]);
 });
-
-Route::get('/delivery-billing', function () {
-    return view('delivery.billinggenerate');
-});
-
-Route::get('/delivery-viewbilling', function () {
-    return view('delivery.viewbilling');
-});
-
-Route::get('/delivery-proposedinvoice', function () {
-    return view('delivery.proposedinvoice');
-});
-
-Route::get('/delivery-viewproposed', function () {
-    return view('delivery.viewproposed');
-});
-
-Route::get('/delivery-reconciliation', function () {
-    return view('delivery.reconciliation');
-});
-
-Route::get('/partner-homepage', function () {
-    return view('partner.homepage');
-});
-
-Route::get('/partner-proposed', function () {
-    return view('partner.proposed');
-});
-
-Route::get('/partner-viewproposed', function () {
-    return view('partner.viewproposed');
-});
-
-Route::get('/partner-reconciliation', function () {
-    return view('partner.reconciliation');
-});
-
-
-Route::get('/settlement-homepage', function () {
-    return view('settlement.homepage');
-});
-
-Route::get('/settlement-proposed', function () {
-    return view('settlement.proposed');
-});
-
-Route::get('/settlement-viewproposed', function () {
-    return view('settlement.viewproposed');
-});
-
-Route::get('/settlement-evaluation', function () {
-    return view('settlement.evaluation');
-});
-
-Route::get('/admin-homepage', function () {
-    return view('admin.homepage');
-});
-
-Route::get('/admin-user', function () {
-    return view('admin.user');
-});
-
-Route::get('/admin-useredit', function () {
-    return view('admin.useredit');
-});
-
-Route::get('/admin-adduser', function () {
-    return view('admin.adduser');
-});
-
-Route::get('/admin-manageuser', function () {
-    return view('admin.manageuser');
-});
-
-Route::get('/admin-datastaging', function () {
-    return view('admin.datastaging');
-});
-
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::get('homepage', [
@@ -143,8 +141,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     ]);
 
     Route::post('adduser', [
-        'as'    => 'admin.adduserpost',
+        'as'    => 'admin.adduser',
         'uses'  => 'AdminController@addUser'
     ]);
 
+    Route::post('edituserstore', [
+        'as'    => 'admin.edituserstore',
+        'uses'  => 'AdminController@editUserstore'
+    ]);
+
+    Route::get('edituser/{id}', 'AdminController@editUser');
+    Route::get('deleteuser/{id}', 'AdminController@deleteUser');
 });

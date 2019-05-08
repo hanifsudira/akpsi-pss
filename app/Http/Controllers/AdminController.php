@@ -19,7 +19,9 @@ class AdminController extends Controller
         $users = DB::table('users')->get();
         return Datatables::of($users)
             ->addColumn('action', function ($user) {
-                return '<a href="#edit-'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                return '<a href="/admin/edituser/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                        <a href="/admin/deleteuser/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-alert"></i> Hapus</a>
+                        ';
             })
             ->editColumn('id', 'ID: {{$id}}')
             ->removeColumn('password')
@@ -44,11 +46,37 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = $request->role;
+        $user->divisi = $request->divisi;
         $user->status =  true;
         $user->created_at = $now;
         $user->updated_at = $now;
 
-        return $user->save() ? 1 : 0;
+        return $user->save() ? 'true' : 'false';
     }
 
+    public function editUser($id){
+        $user = DB::table('users')->where('id',$id)->get();
+        return view('admin.useredit',['user'=>$user]);
+    }
+
+    public function deleteUser($id){
+        DB::table('users')->where('id',$id)->delete();
+        return redirect('admin/homepage');
+    }
+
+    public function editUserstore(Request $request){
+        $now = new \DateTime();
+
+       $result = DB::table('user')
+            ->where('id', $request->id)
+            ->update(
+                [
+                    'name' => $request->name,
+                    'email' => $request->emai,
+                    'divisi' => $request->divisi,
+                    'role' => $request->role
+                ]);
+
+        return $result ? 'true' : 'false';
+    }
 }

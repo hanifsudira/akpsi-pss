@@ -22,9 +22,8 @@
                 </div>
                 <div class="box-body">
                     <div class="row">
-                        <form class="form-group" method="POST" action="#">
+                        <form id="adduser" class="form-group">
                             <div class="col-md-6">
-
                                 <div class="form-group">
                                     <label for="">Name</label>
                                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -73,7 +72,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Divisi</label>
-                                    <input id="username" type="text" class="form-control{{ $errors->has('divisi') ? ' is-invalid' : '' }}" name="divisi" value="{{ old('divisi') }}" required>
+                                    <input id="divisi" type="text" class="form-control{{ $errors->has('divisi') ? ' is-invalid' : '' }}" name="divisi" value="{{ old('divisi') }}" required>
                                     @if ($errors->has('divisi'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('divisi') }}</strong>
@@ -92,6 +91,10 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-6 offset-md-4">
+                                <button id="tag-form-submit" type="submit" class="btn btn-primary">Save</button>
+                                <a href="{{route('admin.homepage')}}" class="btn btn-primary">Cancel</a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -99,4 +102,39 @@
 
         </section>
     </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#tag-form-submit").on('click', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type    : 'POST',
+                    url     : '{{ route('admin.adduser') }}',
+                    data    : $('#adduser').serialize(),
+                    success: function(response) {
+                        console.log(response);
+                        if(response == 'true'){
+                            console.log('masok pak eko')
+                            alert('Berhasil Tambah User');
+                            window.location = "/admin/homepage";
+                        }
+                        else {
+                            alert('Gagal Tambah User');
+                            window.location = "/admin/homepage";
+                        }
+
+                    },
+                    error: function() {
+                        console.log('ga masok pak eko')
+                        alert('Gagal Tambah User');
+                        window.location = "/admin/homepage";
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
