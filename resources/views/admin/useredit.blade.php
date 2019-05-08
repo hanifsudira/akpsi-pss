@@ -1,7 +1,6 @@
 @extends('template.app')
 @section('title', 'Admin User Page')
 @section('content')
-
     <div class="container">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -16,96 +15,116 @@
         </section>
 
         <section class="content">
-
-            <div class="box box-default">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Search User</h3>
-
-                  <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-                  </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>User name</label>
-                        <input class="form-control" type="text" placeholder="80291">
-                      </div>
-                      <!-- /.form-group -->
-                      <div class="form-group">
-                        <label>User ID</label>
-                        <input class="form-control" type="text">
-                      </div>
-                      <!-- /.form-group -->
-
-                    
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Edit User</h3>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Division</label>
-                        <select class="form-control select2" style="width: 100%;">
-                          <option selected="selected">Information Technology (IT)</option>
-                          <option>dummy 2</option>
-                          <option>dummy 3</option>
-                        </select>
+                    <div class="box-body">
+                        <div class="row">
+                            <form id="adduser" class="form-group">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">User ID</label>
+                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="id" value="{{$user[0]->id}}" placeholder="{{$user[0]->id}}" disabled>
+                                            <span class="invalid-feedback" role="alert">
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Name</label>
+                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" placeholder="{{$user[0]->name}}" required autofocus>
+                                        @if ($errors->has('name'))
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
 
-                      </div>
-                      <!-- /.form-group -->
-                      
+                                    <div class="form-group">
+                                        <label for="">E-Mail Address</label>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="{{$user[0]->email}}" required autofocus>
+                                        @if ($errors->has('email'))
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="">Username</label>
+                                        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" placeholder="{{$user[0]->username}}" disabled>
+                                        @if ($errors->has('username'))
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('username') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Divisi</label>
+                                        <input id="divisi" type="text" class="form-control{{ $errors->has('divisi') ? ' is-invalid' : '' }}" name="divisi" placeholder="{{$user[0]->divisi}}" required>
+                                        @if ($errors->has('divisi'))
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('divisi') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">User Role</label>
+                                        <select id="role" name="role" class="form-control">
+                                            <option value="1">USER</option>
+                                            <option value="2">DELIVERY</option>
+                                            <option value="3">PARTNER</option>
+                                            <option value="4">SETTLEMENT</option>
+                                            <option value="5">ADMIN</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <button id="tag-form-submit" type="submit" class="btn btn-primary">Save</button>
+                                    <a href="{{route('admin.homepage')}}" class="btn btn-primary">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <!-- /.col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-                <!-- /.box-body -->
-
-
-
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Search</button>
                 </div>
 
-
-
-                 <div class="box">
-            
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>No</th>
-                  <th>User Name</th>
-                  <th>User ID</th>
-                  <th>User Role</th>
-                  <th>Division</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                  <td>1</td>
-                  <td>Hanif Sudira</td>
-                  <td>80291</td>
-                  <td>Delivery</td>
-                  <td>Sales & Finance</td>
-                  <td>Edit Icon</td>
-                </tr>
-                
-                </tbody>
-                <tfoot>
-                
-
-
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
         </section>
     </div>
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#tag-form-submit").on('click', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type    : 'POST',
+                    url     : '{{ route('admin.edituserstore') }}',
+                    data    : $('#adduser').serialize(),
+                    success: function(response) {
+                        console.log(response);
+                        if(response == 'true'){
+                            console.log('masok pak eko')
+                            alert('Berhasil Edit User');
+                            window.location = "/admin/homepage";
+                        }
+                        else {
+                            alert('Gagal Tambah User');
+                            window.location = "/admin/homepage";
+                        }
+
+                    },
+                    error: function() {
+                        console.log('ga masok pak eko')
+                        alert('Gagal Edit User');
+                        window.location = "/admin/homepage";
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
