@@ -23,10 +23,20 @@ class DeliveryController extends Controller
       ]);
 
       if ($validator->passes()) {
-        $input = $request->all();
-        $input['document_name'] = time().'.'.$request->document_name->getClientOriginalExtension();
-        $request->document_name->move(public_path('document_name'), $input['document_name']);
+        // $input = new Upload_file();
 
+        //   $input->upload_by = $this->input('hidden_upload_by');
+        //   $input->upload_time = $this->input('hidden_upload_time');
+        //   $input->type_document = $this->input('hidden_type_document');
+        //   $input->document_name = $this->input('hidden_document_name');
+
+        //   return $input->save() ? 1 : 0;
+         $input = $request->all();
+         dd($input);
+       
+        // $input['document_name'] = time().'.'.$request->hidden_upload_by->getClientOriginalExtension();
+        // $request->hidden_upload_by->move(public_path('document_name'), $input['document_name']);
+        
         Upload_file::create($input);
         return response()->json(['success'=>'Berhasil']);
       }

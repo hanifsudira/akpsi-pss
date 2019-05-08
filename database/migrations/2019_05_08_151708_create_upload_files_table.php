@@ -17,8 +17,8 @@ class CreateUploadFilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('upload_by');
             $table->string('upload_time');
-            $table->string('type_document', 255);
-            $table->binary('document_name');
+            $table->string('type_document');
+            $table->string('document_name');
         });
     }
 

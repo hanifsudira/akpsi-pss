@@ -187,7 +187,9 @@
                                 <label for="exampleInputEmail1">Buffer</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="20-01-2020" disabled="">
                             </div>
-                            <form action="{{ url('delivery-viewproposed') }}" enctype="multipart/form-data" method="POST"> 
+
+                            <form action="{{ route('uploadFile') }}" enctype="multipart/form-data" method="POST"> 
+                               
                             <div class="form-group">
                                     <div class="table-wrapper">
                                             <div class="table-title">
@@ -195,6 +197,7 @@
                                                     <div class="col-sm-8"><b>Document Attachment</b></div>
                                                 </div>
                                             </div>
+                                            
                                             <form method="post" id="user_form">
                                                     <div class="table-responsive">
                                                      <table class="table table-striped table-bordered" id="user_data">
@@ -213,7 +216,9 @@
                                                 
                                                    <br />
                                                   </div>
+                                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <div id="user_dialog" title="Add Data">
+                                                
                                                    <div class="form-group">
                                                     <label>Upload By</label>
                                                     <input type="text" name="upload_by"  placeholder={{ Auth::user()->username }} id="upload_by" class="form-control" />
@@ -229,13 +234,8 @@
                                                         <input type="text" name="type_document" id="type_document" class="form-control" />
                                                         <span id="error_last_name" class="text-danger"></span>
                                                     </div>
-                                                    {{-- <form action="{{ url('delivery-viewproposed') }}" enctype="multipart/form-data" method="POST"> --}}
+                                                   
                                                     <div class="form-group">
-{{--                                                         
-                                                            <div class="form-group">
-                                                             <button class="btn btn-success upload-image" type="submit">Upload Image</button>
-                                                            </div> --}}
-                                                       
                                                             <label>Document Name</label>
                                                             <input type="file" name="document_name" id="document_name" class="form-control" />
                                                             <span id="error_last_name" class="text-danger"></span>
@@ -272,6 +272,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script>
   <script>
+
     $("body").on("click",".upload-image",function(e){
       $(this).parents("form").ajaxForm(options);
     });
@@ -281,9 +282,14 @@
       complete: function(response) 
       {
           if($.isEmptyObject(response.responseJSON.error)){
-              $("input[name='upload_by']").val('');
-              $("input[name='upload_time']").val('');
-              $("input[name='type_document']").val('');
+            //   var sel = $("input[name='hidden_upload_by']").attr('value');
+            $("input[name='hidden_upload_by']").attr('value');
+            $("input[name='hidden_upload_time']").attr('value');
+            $("input[name='hidden_type_document']").attr('value');
+            //   $("input[name='hidden_upload_by']").val('');
+            //   $("input[name='hidden_upload_time']").val('');
+            //   $("input[name='hidden_type_document']").val('');
+            //   alert(sel)
               alert('Image Upload Successfully.');
           }else{
               printErrorMsg(response.responseJSON.error);
@@ -418,10 +424,10 @@
             // alert(user);
             count = count + 1;
             output = '<tr id="row_'+count+'">';
-            output += '<td>'+upload_by+' <input type="hidden" name="hidden_upload_by[]" id="upload_by'+count+'" class="first_name" value="'+upload_by+'" /></td>';
-            output += '<td>'+upload_time+' <input type="hidden" name="hidden_upload_time[]" id="upload_time'+count+'" value="'+upload_time+'" /></td>';
-            output += '<td>'+type_document+' <input type="hidden" name="hidden_type_document[]" id="type_document'+count+'" value="'+type_document+'" /></td>';
-            output += '<td>'+document_name+' <input type="hidden" name="hidden_document_name[]" id="document_name'+count+'" value="'+document_name+'" /></td>';
+            output += '<td>'+upload_by+' <input type="hidden" name="hidden_upload_by" id="upload_by'+count+'" class="first_name" value="'+upload_by+'" /></td>';
+            output += '<td>'+upload_time+' <input type="hidden" name="hidden_upload_time" id="upload_time'+count+'" value="'+upload_time+'" /></td>';
+            output += '<td>'+type_document+' <input type="hidden" name="hidden_type_document" id="type_document'+count+'" value="'+type_document+'" /></td>';
+            output += '<td>'+document_name+' <input type="hidden" name="hidden_document_name" id="document_name'+count+'" value="'+document_name+'" /></td>';
             // output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+count+'">View</button></td>';
             output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+count+'">Remove</button></td>';
             output += '</tr>';
@@ -430,10 +436,10 @@
            else
            {
             var row_id = $('#hidden_row_id').val();
-            output = '<td>'+upload_by+' <input type="hidden" name="hidden_upload_by[]" id="upload_by'+row_id+'" class="upload_by" value="'+upload_by+'" /></td>';
-            output += '<td>'+upload_time+' <input type="hidden" name="hidden_upload_time[]" id="upload_time'+row_id+'" value="'+upload_time+'" /></td>';
-            output += '<td>'+type_document+' <input type="hidden" name="hidden_type_document[]" id="type_document'+row_id+'" value="'+type_document+'" /></td>';
-            output += '<td>'+document_name+' <input type="hidden" name="hidden_document_name[]" id="document_name'+row_id+'" value="'+document_name+'" /></td>';
+            output = '<td>'+upload_by+' <input type="hidden" name="hidden_upload_by" id="upload_by'+row_id+'" class="upload_by" value="'+upload_by+'" /></td>';
+            output += '<td>'+upload_time+' <input type="hidden" name="hidden_upload_time" id="upload_time'+row_id+'" value="'+upload_time+'" /></td>';
+            output += '<td>'+type_document+' <input type="hidden" name="hidden_type_document" id="type_document'+row_id+'" value="'+type_document+'" /></td>';
+            output += '<td>'+document_name+' <input type="hidden" name="hidden_document_name" id="document_name'+row_id+'" value="'+document_name+'" /></td>';
             // output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+row_id+'">View</button></td>';
             output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+row_id+'">Remove</button></td>';
             $('#row_'+row_id+'').html(output);
