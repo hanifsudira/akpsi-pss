@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\AddUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Hash;
+
 
 class AdminController extends Controller
 {
@@ -22,7 +26,29 @@ class AdminController extends Controller
             ->make(true);
     }
 
-    public function datastaging(){
+    public function dataStaging(){
         return view('admin.datastaging');
     }
+
+    public function adduserview(){
+        return view('admin.adduser');
+    }
+
+    public function addUser(Request $request){
+        $now = new \DateTime();
+
+        $user = new AddUser();
+
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->role;
+        $user->status =  true;
+        $user->created_at = $now;
+        $user->updated_at = $now;
+
+        return $user->save() ? 1 : 0;
+    }
+
 }

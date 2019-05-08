@@ -134,16 +134,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 
     Route::get('datastaging', [
         'as'    => 'admin.datastaging',
-        'uses'  => 'AdminController@datastaging'
+        'uses'  => 'AdminController@dataStaging'
     ]);
 
-    Route::get('kelolauser', [
-        'as'    => 'admin.kelolauser',
-        'uses'  => 'AdminController@kelolauser'
+    Route::get('adduserview', [
+        'as'    => 'admin.adduserview',
+        'uses'  => 'AdminController@adduserview'
     ]);
 
-    Route::get('kelolajenis', [
-        'as'    => 'admin.kelolajenis',
-        'uses'  => 'AdminController@kelolajenis'
+    Route::post('adduser', [
+        'as'    => 'admin.adduserpost',
+        'uses'  => 'AdminController@addUser'
     ]);
+
 });
