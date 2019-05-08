@@ -40,7 +40,30 @@ class DeliveryController extends Controller
         Upload_file::create($input);
         return response()->json(['success'=>'Berhasil']);
       }
-
       return response()->json(['error'=>$validator->errors()->all()]);
+    }
+  
+    public function homepage(){
+        return view('delivery.homepage');
+    }
+
+    public function billinggenerate(){
+        return view('delivery.billinggenerate');
+    }
+
+    public function viewbilling(){
+        return view('delivery.viewbilling');
+    }
+
+    public function proposedinvoice(){
+        return view('delivery.proposedinvoice');
+    }
+
+    public function viewproposed(){
+        return view('delivery.viewproposed');
+    }
+
+    public function reconciliation(){
+        return view('delivery.reconciliation');
     }
 }
