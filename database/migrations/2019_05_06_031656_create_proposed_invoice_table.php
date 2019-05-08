@@ -18,10 +18,10 @@ class CreateProposedInvoiceTable extends Migration
             $table->string('partner_name', 120);
             $table->string('product', 255);
             $table->string('contract_number', 120);
-            $table->decimal('monthly_reccuring_charge');
-            $table->decimal('one_time_charge');
-            $table->decimal('usage_charge');
-            $table->decimal('penalty_charge');
+            $table->integer('monthly_reccuring_charge');
+            $table->integer('one_time_charge');
+            $table->integer('usage_charge');
+            $table->integer('penalty_charge');
             $table->integer('id_bg_sum');
             $table->integer('id_status');
             $table->integer('id_doc');
