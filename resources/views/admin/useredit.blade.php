@@ -110,18 +110,18 @@
                         if(response == 'true'){
                             console.log('masok pak eko')
                             alert('Berhasil Edit User');
-                            window.location = "/admin/homepage";
+                            //window.location = "/admin/homepage";
                         }
                         else {
                             alert('Gagal Tambah User');
-                            window.location = "/admin/homepage";
+                            //window.location = "/admin/homepage";
                         }
 
                     },
                     error: function() {
                         console.log('ga masok pak eko')
                         alert('Gagal Edit User');
-                        window.location = "/admin/homepage";
+                        //window.location = "/admin/homepage";
                     }
                 });
             });
