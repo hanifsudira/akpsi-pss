@@ -55,12 +55,13 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 Route::group(['prefix' => 'delivery'], function () {
+
     Route::get('homepage', [
         'as'    => 'delivery.homepage',
         'uses'  => 'DeliveryController@homepage'
     ]);
 
-    Route::get('homepage', [
+    Route::get('billinggenerate', [
         'as'    => 'delivery.billinggenerate',
         'uses'  => 'DeliveryController@billinggenerate'
     ]);

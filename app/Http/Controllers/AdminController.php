@@ -68,7 +68,6 @@ class AdminController extends Controller
         $now = new \DateTime();
         $sql = "update users set name='$request->name',email='$request->email',divisi='$request->divisi',role='$request->role' where id='$request->id'";
         $result = DB::select($sql);
-        return $sql;
-        //return $result ? 'true' : 'false';
+        return $result ? 'true' : 'false';
     }
 }

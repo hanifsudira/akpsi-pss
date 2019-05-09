@@ -103,8 +103,40 @@
                     </div>
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            @if(Auth::user()->role == 5)
-                                <li><a href="{{ route('admin.homepage') }}">Manage User</a></li>
+                            @if(Auth::user()->role == 1)
+                                <li><a href="{{ route('user.homepage') }}">Home</a></li>
+                            @elseif(Auth::user()->role == 2)
+                                <li><a href="{{ route('delivery.homepage') }}">Home</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dispute<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('delivery.billinggenerate') }}">Billing Generate</a></li>
+                                        <li><a href="{{ route('delivery.proposedinvoice') }}">Proposed Invoice</a></li>
+                                        <li><a href="{{ route('delivery.reconciliation') }}">Reconciliation</a></li>
+                                        <li><a href="{{ route('delivery.viewbilling') }}">View Billing</a></li>
+                                        <li><a href="{{ route('delivery.viewproposed') }}">View Proposed</a></li>
+                                    </ul>
+                                </li>
+                            @elseif(Auth::user()->role == 3)
+                                <li><a href="{{ route('partnert.homepage') }}">Home</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dispute<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('partner.proposed') }}">Proposed Invoice</a></li>
+                                        <li><a href="{{ route('partner.reconciliation') }}">Reconciliation</a></li>
+                                    </ul>
+                                </li>
+                            @elseif(Auth::user()->role == 4)
+                                <li><a href="{{ route('settlement.homepage') }}">Home</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Evaluation<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('settlement.evaluation') }}">Proposed Invoice</a></li>
+                                        <li><a href="{{ route('settlement.reconciliation') }}">Result</a></li>
+                                    </ul>
+                                </li>
+                            @elseif(Auth::user()->role == 5)
+                                <li><a href="{{ route('admin.homepage') }}">Home</a></li>
                                 <li><a href="{{ route('admin.datastaging') }}">Data Staging</a></li>
                             @endif
                         </ul>
