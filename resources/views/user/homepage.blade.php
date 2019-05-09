@@ -63,15 +63,11 @@
         <div class="row">
                 <div class="col-xs-12">
                   <div class="box">
-                    {{-- <div class="box-header">
-                      <h3 class="box-title">Hover Data Table</h3>
-                    </div> --}}
-                    <!-- /.box-header -->
+
                     <div class="box-body">
-                      <table id="datatable" class="table table-bordered table-hover">
+                      <table id="tabledata" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th></th>
                           <th>No</th>
                           <th>Partner Name</th>
                           <th>Kontrak Layanan</th>
@@ -96,11 +92,11 @@
 @section('js')
 <script type="text/javascript">
   // $(document).ready(function() {
-    var oTable = $('#datatable').DataTable({
+    var oTable = $('#tabledata').DataTable({
           processing: true,
           serverSide: true,
           ajax:{
-          url : 'getuser', 
+          url : 'usergetuser', 
           data: function(d){
             d.partner_name = $('input[name=partner_name]').val();
             d.invoice_number = $('input[name=invoice_number]').val();

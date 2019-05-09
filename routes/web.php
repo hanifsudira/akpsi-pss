@@ -46,7 +46,7 @@ Route::group(['prefix' => 'user'], function () {
         'uses'  => 'UserController@searchresult'
     ]);
 
-    Route::get('getuser', [
+    Route::get('usergetuser', [
         'as'    => 'user.getuser',
         'uses'  => 'UserController@getAdvanceFilterData'
     ]);
