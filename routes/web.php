@@ -36,6 +36,8 @@ Route::group(['prefix' => 'user'], function () {
         'uses'  => 'UserController@homepage'
     ]);
 
+    Route::get('viewinvoice/{data}','UserController@showinvoice');
+
     Route::get('viewinvoice', [
         'as'    => 'user.viewinvoice',
         'uses'  => 'UserController@viewinvoice'

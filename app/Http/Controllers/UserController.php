@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\AddUser;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +19,24 @@ class UserController extends Controller
 
     public function searchresult(){
         return view('user.searchresult');
+    }
+
+    public function showinvoice($data){
+        $user = DB::table('proposed_invoice')->select([
+            'proposed_invoice.id as id',
+            'proposed_invoice.partner_name as partner_name',
+            'proposed_invoice.product as product_name',
+            'proposed_invoice.contract_number as invoice_number',
+            'status.remarks as remarks',
+            'proposed_invoice.contract_number as contract_number',
+            'proposed_invoice.id_bg_sum as skema',
+            'proposed_invoice.created_at as contract_start',
+            'proposed_invoice.id_doc as document_attachment',
+            'proposed_invoice.id_status as payment_status'
+        ])->leftJoin('status','status.id','=','proposed_invoice.id_status')
+        ->where('proposed_invoice.contract_number',$data)->get();
+        
+        return view('user.viewinvoice',['user'=>$user]);
     }
 
     public function getAdvanceFilterData(Request $request){

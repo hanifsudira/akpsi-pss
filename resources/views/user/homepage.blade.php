@@ -114,12 +114,15 @@
                     d.status = $('select[name=status]').val();
                 }
             },
-            // {{--ajax: '{{ route('admin.getuser') }}',--}}
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'partner_name', name: 'partner_name'},
                 {data: 'product_name', name: 'product_name'},
-                {data: 'invoice_number', name: 'invoice_number'},
+                {data: 'invoice_number', name: 'invoice_number',
+                render:function(data, type, row){
+                return "<a href='/user/viewinvoice/"+ data +"'>" + data + "</a>"
+                    }
+                   },
                 {data: 'remarks', name: 'remarks'},
                 {data: 'contract_number', name: 'contract_number'},
                 {data: 'skema', name: 'skema'},
