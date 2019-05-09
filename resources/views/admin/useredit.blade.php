@@ -22,36 +22,31 @@
                     <div class="box-body">
                         <div class="row">
                             <form id="edituser" class="form-group">
+                                <input name="id" type="hidden" value="{{$user[0]->id}}">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">User ID</label>
-                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="id" value="{{$user[0]->id}}" placeholder="{{$user[0]->id}}" disabled>
-                                            <span class="invalid-feedback" role="alert">
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="">Name</label>
-                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" placeholder="{{$user[0]->name}}" required autofocus>
+                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{$user[0]->name}}" placeholder="{{$user[0]->name}}" required autofocus>
                                         @if ($errors->has('name'))
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
                                         @endif
                                     </div>
 
                                     <div class="form-group">
                                         <label for="">E-Mail Address</label>
-                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="{{$user[0]->email}}" required autofocus>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{$user[0]->email}}" placeholder="{{$user[0]->email}}" required autofocus>
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
                                         @endif
                                     </div>
 
                                     <div class="form-group">
                                         <label for="">Username</label>
-                                        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" placeholder="{{$user[0]->username}}" disabled>
+                                        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{$user[0]->username}}" placeholder="{{$user[0]->username}}" disabled>
                                         @if ($errors->has('username'))
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('username') }}</strong>
@@ -62,7 +57,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Divisi</label>
-                                        <input id="divisi" type="text" class="form-control{{ $errors->has('divisi') ? ' is-invalid' : '' }}" name="divisi" placeholder="{{$user[0]->divisi}}" required>
+                                        <input id="divisi" type="text" class="form-control{{ $errors->has('divisi') ? ' is-invalid' : '' }}" name="divisi" value="{{$user[0]->divisi}}" placeholder="{{$user[0]->divisi}}" required>
                                         @if ($errors->has('divisi'))
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('divisi') }}</strong>
@@ -108,21 +103,21 @@
                     success: function(response) {
                         console.log(response);
                         console.log($('#edituser').serialize());
-                        if(response == 'true'){
+                        if(response == 'false'){
                             console.log('masok pak eko')
                             alert('Berhasil Edit User');
-                            //window.location = "/admin/homepage";
+                            window.location = "/admin/homepage";
                         }
                         else {
-                            alert('Gagal Edit User');
-                            //window.location = "/admin/homepage";
+                            alert('Berhasil Edit User');
+                            window.location = "/admin/homepage";
                         }
 
                     },
                     error: function() {
                         console.log('ga masok pak eko')
                         alert('Gagal Edit User');
-                        //window.location = "/admin/homepage";
+                        window.location = "/admin/homepage";
                     }
                 });
             });
