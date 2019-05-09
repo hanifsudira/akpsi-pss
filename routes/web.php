@@ -19,8 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/delivery-viewproposed', ['uses'=>'DeliverController@uploadFile']);
-Route::post('/delivery-viewproposed', ['as'=>'uploadFile', 'uses'=>'DeliveryController@StoreUploadFile']);
+Route::get('/delivery/viewproposed', ['uses'=>'DeliverController@uploadFile']);
+Route::post('/delivery/viewproposed', ['as'=>'uploadFile', 'uses'=>'DeliveryController@StoreUploadFile']);
 
 
 
@@ -44,6 +44,11 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('searchresult', [
         'as'    => 'user.searchresult',
         'uses'  => 'UserController@searchresult'
+    ]);
+
+    Route::get('getuser', [
+        'as'    => 'user.getuser',
+        'uses'  => 'UserController@getAdvanceFilterData'
     ]);
 });
 
