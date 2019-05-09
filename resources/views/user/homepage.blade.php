@@ -1,66 +1,70 @@
 @extends('template.app')
 @section('title', 'User Homepage')
 @section('content')
-<div class="container">
-  <section class="content-header">
-    <h1>
-      <small>Result</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">User</a></li>
-      <li class="active">Result</li>
-    </ol>
-  </section>
+    <div class="container">
+        <section class="content-header">
+            <h1>
+                <small>Result</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">User</a></li>
+                <li class="active">Result</li>
+            </ol>
+        </section>
 
-  <section class="content">
-    <div class="box box-default">
-      <div class="box-header with-border">
-        <h3 class="box-title">Search Invoice</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
-      </div>
-      {{-- class="form-inline" --}}
-      <form method="POST" id="search-form"  role="form">
-      <div class="box-body">
-        <div class="row">
-          
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Partner Name</label>
-              <input class="form-control" type="text" name="partner_name" id="partner_name" placeholder="search partner name">
+        <section class="content">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Search Invoice</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i>
+                        </button>
+                    </div>
+                </div>
+                {{-- class="form-inline" --}}
+                <form method="POST" id="search-form" role="form">
+                    <div class="box-body">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Partner Name</label>
+                                    <input class="form-control" type="text" name="partner_name" id="partner_name"
+                                           placeholder="search partner name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Invoice Number</label>
+                                    <input class="form-control" type="text" name="invoice_number" id="invoice_number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control select2" style="width: 100%;" name="status" id="status">
+                                        <option selected="selected"></option>
+                                        <option>Accepted by Delivery</option>
+                                        <option>Accepted by Reviewer</option>
+                                        <option>Accepted by Evaluator</option>
+                                        <option>Accepted by Partner</option>
+                                        <option>Rejected by Delivery</option>
+                                        <option>Rejected by Reviewer</option>
+                                        <option>Rejected by Evaluator</option>
+                                        <option>Rejected by Partner</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
             </div>
-            <div class="form-group">
-              <label>Invoice Number</label>
-              <input class="form-control" type="text" name="invoice_number" id="invoice_number">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" style="width: 100%;" name="status" id="status">
-                <option selected="selected">Accepted by Delivery</option>
-                <option>Accepted by Reviewer</option>
-                <option>Accepted by Evaluator</option>
-                <option>Accepted by Partner</option>
-                <option>Rejected by Delivery</option>
-                <option>Rejected by Reviewer</option>
-                <option>Rejected by Evaluator</option>
-                <option>Rejected by Partner</option>
-              </select>
-            </div>
-          </div>
-       
-        </div>
-      </div>
-    </form>
-      <div class="box-footer">
-          <button type="submit" class="btn btn-primary">Search</button>
-      </div>
-    </div>
-        <div class="row">
+            <div class="row">
                 <div class="col-xs-12">
                   <div class="box">
 
@@ -83,11 +87,10 @@
                         </thead>
                       </table>
                     </div>
-                  </div>
                 </div>
-              </div>
-  </section>
-</div>
+            </div>
+        </section>
+    </div>
 @endsection
 @section('js')
 <script type="text/javascript">
