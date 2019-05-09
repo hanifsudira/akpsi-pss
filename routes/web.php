@@ -60,6 +60,13 @@ Route::group(['prefix' => 'delivery'], function () {
         'uses'  => 'DeliveryController@homepage'
     ]);
 
+    Route::get('viewbilling/{data}','DeliveryController@showinvoice');
+
+      Route::get('deliverygetuser', [
+        'as'    => 'delivery.getuser',
+        'uses'  => 'DeliveryController@getAdvanceFilterData'
+    ]);
+
     Route::get('homepage', [
         'as'    => 'delivery.billinggenerate',
         'uses'  => 'DeliveryController@billinggenerate'
