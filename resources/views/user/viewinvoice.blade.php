@@ -23,48 +23,48 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Partner Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="BIZNET" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->partner_name}}" placeholder="{{$user[0]->partner_name}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kontrak Layanan</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="KL TEST TC" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->product_name}}" placeholder="{{$user[0]->product_name}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Proposed Invoice by DA" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->remarks}}" placeholder="{{$user[0]->remarks}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Contract Number</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="TC1901-03001" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->contract_number}}" placeholder="{{$user[0]->contract_number}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Contract Start</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="16-01-2019" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->contract_start}}" placeholder="{{$user[0]->contract_start}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Contract End</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="20-01-2020" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->remarks}}" placeholder="{{$user[0]->remarks}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Product Name</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Internet Network" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->remarks}}" placeholder="{{$user[0]->remarks}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Skema</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Skema-1" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->remarks}}" placeholder="{{$user[0]->remarks}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Amount Number</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="IDR 189.000.000" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->remarks}}" placeholder="{{$user[0]->remarks}}" disabled="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Paid/Unpaid</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="PAID" disabled="">
+                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{$user[0]->payment_status}}" placeholder="{{$user[0]->payment_status}}" disabled="">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Document Attachment</label>
                                 <select class="form-control select2" style="width: 100%;" disabled>
                                     <option selected="selected">Document-Name-1.pdf</option>
                                 </select>
