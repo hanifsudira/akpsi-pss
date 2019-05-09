@@ -2,6 +2,7 @@
 @section('title', 'User Homepage')
 @section('content')
     <div class="container">
+        <form method="POST" id="search-form" role="form">
         <section class="content-header">
             <h1>
                 <small>Result</small>
@@ -25,11 +26,12 @@
                     </div>
                 </div>
                 {{-- class="form-inline" --}}
-                <form method="POST" id="search-form" role="form">
+               
                     <div class="box-body">
                         <div class="row">
-
+                         
                             <div class="col-md-6">
+                              
                                 <div class="form-group">
                                     <label>Partner Name</label>
                                     <input class="form-control" type="text" name="partner_name" id="partner_name"
@@ -55,14 +57,16 @@
                                         <option>Rejected by Partner</option>
                                     </select>
                                 </div>
+                              </form>
                             </div>
 
                         </div>
                     </div>
-                </form>
+             
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
+              </form>
             </div>
             <div class="row">
                 <div class="col-xs-12">
@@ -103,14 +107,14 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: 'getuser',
+                url: 'usergetuser',
                 data: function (d) {
                     d.partner_name = $('input[name=partner_name]').val();
                     d.invoice_number = $('input[name=invoice_number]').val();
                     d.status = $('select[name=status]').val();
                 }
             },
-            {{--ajax: '{{ route('admin.getuser') }}',--}}
+            // {{--ajax: '{{ route('admin.getuser') }}',--}}
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'partner_name', name: 'partner_name'},
