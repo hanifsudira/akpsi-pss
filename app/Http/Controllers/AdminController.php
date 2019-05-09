@@ -66,17 +66,9 @@ class AdminController extends Controller
 
     public function editUserstore(Request $request){
         $now = new \DateTime();
-
-       $result = DB::table('user')
-            ->where('id', $request->id)
-            ->update(
-                [
-                    'name' => $request->name,
-                    'email' => $request->emai,
-                    'divisi' => $request->divisi,
-                    'role' => $request->role
-                ]);
-
-        return $result ? 'true' : 'false';
+        $sql = "update users set name='$request->name',email='$request->email',divisi='$request->divisi',role='$request->role' where id='$request->id'";
+        $result = DB::select($sql);
+        return $sql;
+        //return $result ? 'true' : 'false';
     }
 }

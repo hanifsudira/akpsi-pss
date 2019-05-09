@@ -21,7 +21,7 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <form id="adduser" class="form-group">
+                            <form id="edituser" class="form-group">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">User ID</label>
@@ -104,24 +104,25 @@
                     },
                     type    : 'POST',
                     url     : '{{ route('admin.edituserstore') }}',
-                    data    : $('#adduser').serialize(),
+                    data    : $('#edituser').serialize(),
                     success: function(response) {
                         console.log(response);
+                        console.log($('#edituser').serialize());
                         if(response == 'true'){
                             console.log('masok pak eko')
                             alert('Berhasil Edit User');
-                            window.location = "/admin/homepage";
+                            //window.location = "/admin/homepage";
                         }
                         else {
-                            alert('Gagal Tambah User');
-                            window.location = "/admin/homepage";
+                            alert('Gagal Edit User');
+                            //window.location = "/admin/homepage";
                         }
 
                     },
                     error: function() {
                         console.log('ga masok pak eko')
                         alert('Gagal Edit User');
-                        window.location = "/admin/homepage";
+                        //window.location = "/admin/homepage";
                     }
                 });
             });
