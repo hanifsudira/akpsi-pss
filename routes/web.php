@@ -68,7 +68,7 @@ Route::group(['prefix' => 'delivery'], function () {
         'uses'  => 'DeliveryController@viewbilling'
     ]);
 
-    Route::get('proposedinvoice', [
+    Route::get('editUserstore', [
         'as'    => 'delivery.proposedinvoice',
         'uses'  => 'DeliveryController@proposedinvoice'
     ]);
