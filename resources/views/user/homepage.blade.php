@@ -22,22 +22,25 @@
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
           </div>
       </div>
+      {{-- class="form-inline" --}}
+      <form method="POST" id="search-form"  role="form">
       <div class="box-body">
         <div class="row">
+          
           <div class="col-md-6">
             <div class="form-group">
               <label>Partner Name</label>
-              <input class="form-control" type="text">
+              <input class="form-control" type="text" name="partner_name" id="partner_name" placeholder="search partner name">
             </div>
             <div class="form-group">
               <label>Invoice Number</label>
-              <input class="form-control" type="text">
+              <input class="form-control" type="text" name="invoice_number" id="invoice_number">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label>Status</label>
-              <select class="form-control select2" style="width: 100%;">
+              <select class="form-control select2" style="width: 100%;" name="status" id="status">
                 <option selected="selected">Accepted by Delivery</option>
                 <option>Accepted by Reviewer</option>
                 <option>Accepted by Evaluator</option>
@@ -49,8 +52,10 @@
               </select>
             </div>
           </div>
+       
         </div>
       </div>
+    </form>
       <div class="box-footer">
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
@@ -63,9 +68,10 @@
                     </div> --}}
                     <!-- /.box-header -->
                     <div class="box-body">
-                      <table id="example2" class="table table-bordered table-hover">
+                      <table id="datatable" class="table table-bordered table-hover">
                         <thead>
                         <tr>
+                            <th></th>
                           <th>No</th>
                           <th>Partner Name</th>
                           <th>Kontrak Layanan</th>
@@ -79,53 +85,6 @@
                           <th>Paid/Unpaid</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                          <td>Trident</td>
-                          <td>Internet
-                            Explorer 4.0
-                          </td>
-                          <td>Win 95+</td>
-                          <td> 4</td>
-                          <td>X</td>
-                          <td>Xaa</td>
-                          <td>Xsc</td>
-                          <td>Xsa</td>
-                          <td>Xaa</td>
-                          <td>Xeeq</td>
-                          <td>Xasd</td>
-                        </tr>
-                        <tr>
-                          <td>Trident</td>
-                          <td>Internet
-                            Explorer 5.0
-                          </td>
-                          <td>Win 95+</td>
-                          <td>5</td>
-                          <td>C</td>
-                          <td>X</td>
-                          <td>X</td>
-                          <td>X</td>
-                          <td>X</td>
-                          <td>X</td>
-                          <td>X</td>
-                        </tr>
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Partner Name</th>
-                            <th>Kontrak Layanan</th>
-                            <th>Invoice Number</th>
-                            <th>Status</th>
-                            <th>Contract Number</th>
-                            <th>Product Name</th>
-                                <th>Skema</th>
-                                <th>Contact Start</th>
-                                <th>Document Attachment</th>
-                                <th>Paid/Unpaid</th>
-                        </tr>
-                        </tfoot>
                       </table>
                     </div>
                   </div>
@@ -133,4 +92,40 @@
               </div>
   </section>
 </div>
+@endsection
+@section('js')
+<script type="text/javascript">
+  // $(document).ready(function() {
+    var oTable = $('#datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax:{
+          url : 'getuser', 
+          data: function(d){
+            d.partner_name = $('input[name=partner_name]').val();
+            d.invoice_number = $('input[name=invoice_number]').val();
+            d.status = $('select[name=status]').val();
+           } 
+           },
+          // ajax: '{{ route('admin.getuser') }}',
+          columns: [
+              { data: 'no',name: 'proposed_invoice.id'},
+              { data: 'partner_name',name: 'proposed_invoice.partner_name'},
+              { data: 'kontrak_layanan',name: 'proposed_invoice.product'},
+              { data: 'invoice_number',name: 'invoice_number'},
+              { data: 'status',name: 'status.remarks'},
+              { data: 'contract_number',name: 'proposed_invoice.contract_number'},
+              { data: 'product_name',name: 'proposed_invoice.product'},,
+              { data: 'skema',name: 'skema'},
+              { data: 'contract_start',name: 'contract_start'},
+              { data: 'document_attachment',name: 'document_attachment'},
+              { data: 'paid_status',name: 'payment_status'}  
+          ]
+      });
+  // });
+  $('#search-form').on('submit', function(e) {
+        oTable.draw();
+        e.preventDefault();
+    });
+  </script>
 @endsection

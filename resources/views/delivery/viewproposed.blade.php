@@ -216,7 +216,7 @@
                                                 
                                                    <br />
                                                   </div>
-                                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                  {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
                                                 <div id="user_dialog" title="Add Data">
                                                 
                                                    <div class="form-group">
@@ -253,7 +253,7 @@
                                                         <button type="button" name="add" id="add" class="btn btn-success btn-xs">ADD MORE DOCUMENT</button>
                                                 </div>
                                                 <div class="form-group">
-                                                        <button class="btn btn-success upload-image" type="submit">Kirim</button>
+                                                        <button class="btn btn-success upload-image" id="btn_submit" type="submit">Kirim</button>
                                                 </div>
                             </div>
                           
@@ -273,8 +273,38 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
   <script>
 
-    $("body").on("click",".upload-image",function(e){
-      $(this).parents("form").ajaxForm(options);
+    $('#button_submit').on("click",function(e){
+    //     // ,".upload-image"
+    //   $(this).parents("form").ajaxForm(options);
+    e.preventDefault();
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type    : 'POST',
+                    url     : '{{ route('delivery.proposedinvoice') }}',
+                    data    : $('#user_form').serialize(),
+                    success: function(response) {
+                        console.log(response);
+                        if(response == 'true'){
+                            console.log('masok pak eko')
+                            alert('Berhasil Tambah User');
+                            window.location = "/admin/homepage";
+                        }
+                        else {
+                            alert('Gagal Tambah User');
+                            window.location = "/admin/homepage";
+                        }
+
+                    },
+                    error: function() {
+                        console.log('ga masok pak eko')
+                        alert('Gagal Tambah User');
+                        window.location = "/admin/homepage";
+                    }
+                });
+            });
+
     });
   
   
