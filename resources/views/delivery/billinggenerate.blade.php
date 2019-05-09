@@ -21,6 +21,7 @@
 @section('content')
 
     <div class="container">
+        <form method="POST" id="search-form" role="form">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -34,7 +35,7 @@
         </section>
 
         <section class="content">
-<div class="box">
+      <div class="box">
             <div class="box-header">
               <h3 class="box-title">Search Billing Generate</h3>
             </div>
@@ -44,7 +45,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Partner Name</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" id="partner_name" name="partner_name" type="text">
                       </div>
                       <!-- /.form-group -->
                       <div class="form-group">
@@ -53,7 +54,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-clock-o"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker">
+                          <input type="text" class="form-control pull-right" name="datepicker" id="datepicker">
                         </div>
                       </div>
                       <!-- /.form-group -->
@@ -62,7 +63,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Kontrak Layanan</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" id="kontrak_layanan" name="kontrak_layanan" type="text">
                       </div>
 
                     </div>
@@ -75,10 +76,10 @@
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
-
+            </form>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="datatable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No</th>
@@ -90,36 +91,9 @@
                   <th>Product Name</th>
                   <th>Skema</th>
                   <th>Document Attachment</th>
+                  {{-- <th>Document Attachment</th> --}}
                 </tr>
                 </thead>
-                <tbody>
-             
-                <tr>
-                  <td>Partner01</td>
-                  <td>KL-1</td>
-                  <td>TK 02011</td>
-                  <td>20-01-2020</td>
-                  <td>29-04-2022</td>
-                  <td>Internet Network</td>
-                  <td>Skema-1</td>
-                  <td>file1.doc</td>
-                </tr>
-                <tr>
-                  <td>Partner02</td>
-                  <td>KL-2</td>
-                  <td>YA 02911</td>
-                  <td>27-08-2019</td>
-                  <td>29-12-2020</td>
-                  <td>Fiber Optic</td>
-                  <td>Skema-2</td>
-                  <td>file2.doc</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                
-
-
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
@@ -137,6 +111,41 @@
 <script src="{{ URL::asset('assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('assets/bower_components/moment/min/moment.min.js') }}"></script>
 <script src="{{ URL::asset('assets/plugins/iCheck/icheck.min.js') }}"></script>
+  <script type="text/javascript">
+        // $(document).ready(function() {
+        var oTable = $('#datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: 'deliverygetuser',
+                data: function (d) {
+                    d.partner_name = $('input[name=partner_name]').val();
+                    d.datepicker = $('input[name=datepicker]').val();
+                    d.kontrak_layanan = $('select[name=kontrak_layanan]').val();
+                }
+            },
+            columns: [
+                {data: 'no', name: 'no'},
+                {data: 'partner_name', name: 'partner_name'},
+                {data: 'kontrak_layanan', name: 'kontrak_layanan',
+                render:function(data, type, row){
+                return "<a href='/delivery/viewbilling/"+ data +"'>" + data + "</a>"
+                    }
+                },
+                {data: 'contract_number', name: 'contract_number'},
+                {data: 'contract_start', name: 'contract_start'},
+                {data: 'contract_end', name: 'contract_end'},
+                {data: 'product_name', name: 'product_name'},
+                {data: 'skema', name: 'skema'},
+                {data: 'document_attachment', name: 'document_attachment'}  
+            ]
+        });
+        // });
+        $('#search-form').on('submit', function (e) {
+            oTable.draw();
+            e.preventDefault();
+        });
+    </script>
 <script>
  $(function () {
     //Initialize Select2 Elements
@@ -144,15 +153,9 @@
 
     //Date picker
     $('#datepicker').datepicker({
+      format: 'dd-mm-yyyy',
       autoclose: true
     })
-
-    
-
-//     $('#selectDate').datepicker()
-// .on('changeDate', function(ev){                 
-//     $('#selectDate').datepicker('hide');
-// });
   })
 </script>
 @endsection
