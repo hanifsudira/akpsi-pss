@@ -2,6 +2,7 @@
 @section('title', 'User Homepage')
 @section('content')
     <div class="container">
+        <form method="POST" id="search-form" role="form">
         <section class="content-header">
             <h1>
                 <small>Result</small>
@@ -25,11 +26,12 @@
                     </div>
                 </div>
                 {{-- class="form-inline" --}}
-                <form method="POST" id="search-form" role="form">
+               
                     <div class="box-body">
                         <div class="row">
-
+                         
                             <div class="col-md-6">
+                              
                                 <div class="form-group">
                                     <label>Partner Name</label>
                                     <input class="form-control" type="text" name="partner_name" id="partner_name"
@@ -55,37 +57,43 @@
                                         <option>Rejected by Partner</option>
                                     </select>
                                 </div>
+                              </form>
                             </div>
 
                         </div>
                     </div>
-                </form>
+             
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
+              </form>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                  <div class="box">
-
-                    <div class="box-body">
-                      <table id="tabledata" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Partner Name</th>
-                          <th>Kontrak Layanan</th>
-                          <th>Invoice Number</th>
-                          <th>Status</th>
-                          <th>Contract Number</th>
-                          <th>Product Name</th>
-                          <th>Skema</th>
-                          <th>Contact Start</th>
-                          <th>Document Attachment</th>
-                          <th>Paid/Unpaid</th>
-                        </tr>
-                        </thead>
-                      </table>
+                    <div class="box">
+                    {{-- <div class="box-header">
+                      <h3 class="box-title">Hover Data Table</h3>
+                    </div> --}}
+                    <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="datatable" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Partner Name</th>
+                                    <th>Kontrak Layanan</th>
+                                    <th>Invoice Number</th>
+                                    <th>Status</th>
+                                    <th>Contract Number</th>
+                                    <th>Product Name</th>
+                                    <th>Skema</th>
+                                    <th>Contact Start</th>
+                                    <th>Document Attachment</th>
+                                    <th>Paid/Unpaid</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,38 +101,38 @@
     </div>
 @endsection
 @section('js')
-<script type="text/javascript">
-  // $(document).ready(function() {
-    var oTable = $('#tabledata').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax:{
-          url : 'usergetuser', 
-          data: function(d){
-            d.partner_name = $('input[name=partner_name]').val();
-            d.invoice_number = $('input[name=invoice_number]').val();
-            d.status = $('select[name=status]').val();
-           } 
-           },
-          // ajax: '{{ route('admin.getuser') }}',
-          columns: [
-              { data: 'no',name: 'proposed_invoice.id'},
-              { data: 'partner_name',name: 'proposed_invoice.partner_name'},
-              { data: 'kontrak_layanan',name: 'proposed_invoice.product'},
-              { data: 'invoice_number',name: 'invoice_number'},
-              { data: 'status',name: 'status.remarks'},
-              { data: 'contract_number',name: 'proposed_invoice.contract_number'},
-              { data: 'product_name',name: 'proposed_invoice.product'},,
-              { data: 'skema',name: 'skema'},
-              { data: 'contract_start',name: 'contract_start'},
-              { data: 'document_attachment',name: 'document_attachment'},
-              { data: 'paid_status',name: 'payment_status'}  
-          ]
-      });
-  // });
-  $('#search-form').on('submit', function(e) {
-        oTable.draw();
-        e.preventDefault();
-    });
-  </script>
+    <script type="text/javascript">
+        // $(document).ready(function() {
+        var oTable = $('#datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: 'usergetuser',
+                data: function (d) {
+                    d.partner_name = $('input[name=partner_name]').val();
+                    d.invoice_number = $('input[name=invoice_number]').val();
+                    d.status = $('select[name=status]').val();
+                }
+            },
+            // {{--ajax: '{{ route('admin.getuser') }}',--}}
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'partner_name', name: 'partner_name'},
+                {data: 'product_name', name: 'product_name'},
+                {data: 'invoice_number', name: 'invoice_number'},
+                {data: 'remarks', name: 'remarks'},
+                {data: 'contract_number', name: 'contract_number'},
+                {data: 'skema', name: 'skema'},
+                {data: 'contract_start', name: 'contract_start'},
+                {data: 'document_attachment', name: 'document_attachment'},
+                {data: 'payment_status', name: 'payment_status'},
+                {data: 'payment_status', name: 'payment_status'}
+            ]
+        });
+        // });
+        $('#search-form').on('submit', function (e) {
+            oTable.draw();
+            e.preventDefault();
+        });
+    </script>
 @endsection

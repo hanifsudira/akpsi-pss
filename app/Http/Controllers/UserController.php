@@ -10,23 +10,19 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function homepage()
-    {
+    public function homepage(){
         return view('user.homepage');
     }
 
-    public function viewinvoice()
-    {
+    public function viewinvoice(){
         return view('user.viewinvoice');
     }
 
-    public function searchresult()
-    {
+    public function searchresult(){
         return view('user.searchresult');
     }
 
-    public function getAdvanceFilterData(Request $request)
-    {
+    public function getAdvanceFilterData(Request $request){
         $invoice = DB::table('proposed_invoice')->select([
             'proposed_invoice.id as id',
             'proposed_invoice.partner_name as partner_name',
@@ -38,14 +34,13 @@ class UserController extends Controller
             'proposed_invoice.created_at as contract_start',
             'proposed_invoice.id_doc as document_attachment',
             'proposed_invoice.id_status as payment_status'
+        ])->leftJoin('status','status.id','=','proposed_invoice.id_status');
 
-        ])->leftJoin('status', 'status.id', '=', 'proposed_invoice.id_status');
-
-        $datatables = Datatables::of($invoice);
+        $datatables =  Datatables::of($invoice);
 
         if ($name = $request->get('partner_name')) {
             // additional users.name search
-            $invoice->where('proposed_invoice.partner_name', 'like', "$name%");
+            $invoice->where('partner_name', 'like', "$name%");
         }
 
         if ($invoice_num = $request->get('invoice_number')) {
@@ -53,17 +48,17 @@ class UserController extends Controller
         }
 
         if ($status = $request->get('status')) {
-            $invoice->where('status.remarks', 'like', $request->get('status'));
+            $invoice->where('remarks', 'like', $request->get('status'));
         }
 
         if ($keyword = $request->get('search')['value']) {
             // override users.name global search
-            $datatables->filterColumn('proposed_invoice.partner_name', 'where', 'like', "$keyword%");
+            $datatables->filterColumn('partner_name', 'where', 'like', "$keyword%");
 
             // override users.id global search - demo for concat
-            $datatables->filterColumn('proposed_invoice.id', 'where', "like", "%$keyword%");
+            $datatables->filterColumn('id', 'where', "like", "%$keyword%");
 
-
+            
         }
 
         return $datatables->make(true);
